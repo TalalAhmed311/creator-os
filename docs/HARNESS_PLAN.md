@@ -1,6 +1,6 @@
 # creator-os — Harness Plan
 
-Status: **brainstorm agreed, not built yet** · 2026-10-05
+Status: **Phase 0–1 done** (baseline commit, restructure into `core/` + `harnesses/studio/`) · next: Phase 2 data layer · 2026-10-05
 
 `personal-studio` grows into **creator-os**: one repo, several harnesses that share code and one database.
 Same principle as today: Claude decides and writes **structured data**; deterministic tools execute it.
@@ -26,10 +26,12 @@ creator-os/
 │   ├── agents/               #   grouped by prefix
 │   └── skills/
 ├── core/                     # shared by every harness
-│   ├── fetch/                #   download.py, instagram.py, platform fetchers
-│   ├── transcribe/, providers/
-│   ├── db/                   #   SQLite schema, migrations, query helpers
-│   └── memory.py, common.py, validate.py
+│   ├── fetch/                #   download.py, instagram.py (+ platform fetchers later)
+│   ├── media/                #   convert.py, clip.py
+│   ├── providers/            #   transcriber + face detector interfaces
+│   ├── schemas/              #   plan / edl / carousel contracts
+│   ├── db/                   #   SQLite schema, migrations, query helpers (Phase 2)
+│   └── common.py, memory.py, refs.py, cli.py, deps.py
 ├── data/
 │   ├── creator-os.db         # single source of truth
 │   └── media/<platform>/<id>/   # downloaded references (today's references/ moves here)
@@ -116,8 +118,8 @@ every number stored with its source and date.
 
 | Phase | What | Done when |
 |---|---|---|
-| 0 | **Initial git commit** (repo has none — baseline before moving files) | clean `git log` |
-| 1 | **Restructure** into `core/` + `harnesses/studio/`; keep `./studio` and every existing command working; rename repo to `creator-os` | `pytest` green, `./studio doctor` OK, `/studio-edit` dry run OK |
+| 0 ✅ | **Initial git commit** (repo has none — baseline before moving files) | clean `git log` |
+| 1 ✅ | **Restructure** into `core/` + `harnesses/studio/`; keep `./studio` and every existing command working; rename repo to `creator-os` (folder rename pending — see note below) | `pytest` green, `./studio doctor` OK, `/studio-edit` dry run OK |
 | 2 | **Data layer**: SQLite schema + migrations, import the 75-creator seed, migrate `content-log.csv` | `./studio db stats` shows 75 creators with sourced snapshots |
 | 3 | **Research agent**: analyse + creator discover/refresh, top-5 insights | runs on the 20-creator research set, produces insights + report |
 | 4 | **Writer agent**: IG reel / carousel, LinkedIn, X outputs, link-as-reference | one idea → drafts for all three platforms |
@@ -125,6 +127,8 @@ every number stored with its source and date.
 | 6 | **Account profiles**: owner's detailed page plans → `brain/accounts/` | writer + HQ use per-account goals |
 
 ## Open items
+- Folder rename `personal-studio` → `creator-os`: do it outside a Claude session, then run `scripts/setup.sh`
+  (venv console scripts like yt-dlp carry absolute paths) and update `.claude/launch.json`.
 - Instagram: Business/Creator account + Meta app for the Graph API? (decides the metrics provider in Phase 5)
 - LinkedIn account: exists / planned? (Phase 6)
 - X: API budget or export/browser/manual? (Phase 5)

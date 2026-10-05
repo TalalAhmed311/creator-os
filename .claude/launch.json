@@ -4,7 +4,7 @@
     {
       "name": "web-studio",
       "runtimeExecutable": "/Users/talalahmed/Documents/build-in-public/personal-studio/.venv/bin/python",
-      "runtimeArgs": ["/Users/talalahmed/Documents/build-in-public/personal-studio/webstudio/server.py", "--no-open"],
+      "runtimeArgs": ["/Users/talalahmed/Documents/build-in-public/personal-studio/harnesses/studio/webstudio/server.py", "--no-open"],
       "port": 4545
     }
   ]

@@ -43,7 +43,7 @@ Owner named one → use it. Otherwise pick by topic and say why in one line. Bac
 ## 5. Build & QA
 ```bash
 ./studio new resources <slug>          # or: Web Studio → ＋ New carousel
-# write projects/<id>/carousel.json (schema: pipeline/schemas/carousel.schema.json)
+# write projects/<id>/carousel.json (schema: core/schemas/carousel.schema.json)
 ./studio validate <id>
 ./studio verify <id>
 ./studio carousel <id> [--size 1080x1080]   # out/slides/*.png · out/carousel.pdf · out/caption.txt

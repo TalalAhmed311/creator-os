@@ -1,7 +1,7 @@
 from conftest import words_from
 
-from pipeline.align_script import align
-from pipeline.detect_fillers import find_fillers
+from harnesses.studio.align_script import align
+from harnesses.studio.detect_fillers import find_fillers
 
 
 def test_fillers_stutters_and_false_start():

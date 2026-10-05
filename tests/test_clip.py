@@ -2,9 +2,9 @@ from pathlib import Path
 
 import pytest
 
-from pipeline.clip import clip, in_raw, main, parse_time, stamp
-from pipeline.common import ffprobe
-from pipeline.download import is_url
+from core.common import ffprobe
+from core.fetch.download import is_url
+from core.media.clip import clip, in_raw, main, parse_time, stamp
 
 MEDIA = Path(__file__).parent / "media"
 

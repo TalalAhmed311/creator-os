@@ -25,8 +25,8 @@ Pillar · Day N / Episode N
 Append the chosen angle to working memory (`decisions`). Spotted a second idea? → `ideas`.
 
 ## Performance analysis (every 5 logged posts)
-Run `.venv/bin/python -m pipeline.content_log analyze`. For each finding with a ≥1.2× difference and n≥2 per group, add a lesson via
-`pipeline.memory remember "<finding with numbers>" --kind lesson --tags <hook_type>,<pillar>` and tell the showrunner which ones look promotable.
+Run `.venv/bin/python -m harnesses.studio.content_log analyze`. For each finding with a ≥1.2× difference and n≥2 per group, add a lesson via
+`core.memory remember "<finding with numbers>" --kind lesson --tags <hook_type>,<pillar>` and tell the showrunner which ones look promotable.
 
 ## /studio-setup
 Interview ~10 questions (who you are, product + one line, audience + level, tone, phrases used/banned, handles, cadence, colours/fonts, reference creators, camera/mic). Write `brain/brand-bible.md`, update `brain/brand.json` colours, add product/tool names to `brain/glossary.txt`.

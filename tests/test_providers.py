@@ -1,9 +1,9 @@
 import pytest
 
-from pipeline.auto_edl import speech_segments
-from pipeline.providers import ProviderUnavailable
-from pipeline.providers.face import get_face_detector
-from pipeline.providers.transcription import BACKENDS, get_transcriber, parse_subtitles
+from core.providers import ProviderUnavailable
+from core.providers.face import get_face_detector
+from core.providers.transcription import BACKENDS, get_transcriber, parse_subtitles
+from harnesses.studio.auto_edl import speech_segments
 
 SRT = """1
 00:00:01,000 --> 00:00:03,000
@@ -67,6 +67,6 @@ def test_mlx_backend_requires_full_runtime(monkeypatch):
 
 
 def test_merge_fragments():
-    from pipeline.transcribe import merge_fragments
+    from harnesses.studio.transcribe import merge_fragments
     ws = [{"text": t, "start": i, "end": i + 0.5} for i, t in enumerate(["Sign", "-ups", "went", "40", "%", "up", "it", "'s"])]
     assert [w["text"] for w in merge_fragments(ws)] == ["Sign-ups", "went", "40%", "up", "it's"]

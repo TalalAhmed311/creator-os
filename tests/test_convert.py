@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from pipeline.common import ffprobe
-from pipeline.convert import convert, output_path
+from core.common import ffprobe
+from core.media.convert import convert, output_path
 
 MEDIA = Path(__file__).parent / "media"
 

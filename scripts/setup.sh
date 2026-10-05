@@ -47,10 +47,10 @@ done
 [ -d "/Applications/Google Chrome.app" ] || echo "!! install Google Chrome — carousels render with headless Chrome"
 
 echo "== remotion"
-(cd remotion && npm install --no-audit --no-fund --silent && npx tsc --noEmit)
+(cd harnesses/studio/remotion && npm install --no-audit --no-fund --silent && npx tsc --noEmit)
 
 mkdir -p memory/working memory/long-term/pillars memory/long-term/projects projects assets/{music,sfx,fonts,logos,broll,models}
 echo "== schemas"
-for f in plan edl carousel; do .venv/bin/python -m pipeline.validate "tests/fixtures/$f.json"; done
+for f in plan edl carousel; do .venv/bin/python -m harnesses.studio.validate "tests/fixtures/$f.json"; done
 echo
 ./studio doctor

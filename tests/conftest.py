@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 @pytest.fixture
 def mem(tmp_path, monkeypatch):
     """Isolated memory engine rooted in tmp_path."""
-    from pipeline import memory
+    from core import memory
     long = tmp_path / "memory" / "long-term"
     monkeypatch.setattr(memory, "WORKING", tmp_path / "memory" / "working")
     monkeypatch.setattr(memory, "LONG", long)

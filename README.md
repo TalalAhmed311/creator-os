@@ -1,5 +1,7 @@
 # Personal AI Content Studio
 
+> Part of **creator-os** — this studio is the first harness (`harnesses/studio/`). Research, Writer and HQ harnesses are planned in [`docs/HARNESS_PLAN.md`](docs/HARNESS_PLAN.md).
+
 A content studio that lives in one folder on your Mac. Claude plans your content with you, edits your raw footage into finished vertical reels, and designs resource carousels. It remembers what you like and learns what performs.
 
 **Claude is the editor's brain, not the mouse.** AI agents decide *what* to do and write it down as structured data (`plan.json`, `edl.json`, `carousel.json`). Ordinary deterministic tools (ffmpeg, Remotion, headless Chrome) turn that data into video and images. Nothing clicks through a GUI editor.
@@ -173,7 +175,7 @@ Every step caches its result in the project's `work/` folder. Re-running is chea
 **Hand-editing an edit:** change `segments` in `edl.json` (these times are in the *source* video), then run:
 
 ```bash
-.venv/bin/python -m pipeline.auto_edl <id> --refresh-captions
+.venv/bin/python -m harnesses.studio.auto_edl <id> --refresh-captions
 ./studio preview <id>
 ```
 
@@ -206,7 +208,6 @@ personal-studio/
 ├── studio                  # CLI entry point (./studio help)
 ├── studio.json             # which transcriber / face detector to use
 ├── CLAUDE.md               # rules Claude Code follows in this folder
-├── AI_STUDIO_PLAN.md       # the original full spec
 ├── .claude/agents/         # 11 agents: showrunner, strategist, hook-specialist, scriptwriter,
 │                           #   series-producer, editor, motion-designer, sound-designer, critic,
 │                           #   resource-curator, carousel-designer
@@ -223,14 +224,18 @@ personal-studio/
 │   │   └── images/         #   screenshots, photos, logos
 │   ├── work/               # intermediates (cache)
 │   └── out/                # deliverables
-├── pipeline/               # Python tools (one job each) + schemas/ + providers/ (pluggable interfaces)
-├── remotion/               # React video templates: captions, zooms, reframing, graphics, cover
-├── carousel/               # slide template + renderer
-├── webstudio/              # browser editor (./studio web): server.py + static/
+├── core/                   # shared code: paths, memory, providers/ (pluggable interfaces), fetch/, media/,
+│                           #   refs, schemas/ (contracts), cli (./studio), deps (doctor)
+├── harnesses/
+│   ├── studio/             # Python tools (one job each) + AI_STUDIO_PLAN.md (the original full spec)
+│   │   ├── remotion/       #   React video templates: captions, zooms, reframing, graphics, cover
+│   │   ├── carousel/       #   slide template + renderer
+│   │   └── webstudio/      #   browser editor (./studio web): server.py + static/
+│   └── research/ writer/ hq/   # planned (docs/HARNESS_PLAN.md)
 ├── assets/                 # music/ sfx/ fonts/ logos/ broll/ models/
 ├── requirements/           # core.txt + optional packs
 ├── scripts/setup.sh
-├── docs/                   # architecture diagram
+├── docs/                   # HARNESS_PLAN.md (creator-os plan), research/, architecture diagram
 ├── plans/                  # weekly content plans
 ├── INSTRUCTIONS.md         # how to use each job, step by step
 └── tests/                  # pytest suite + synthetic test media

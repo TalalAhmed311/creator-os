@@ -1,4 +1,4 @@
-from pipeline.common import Project
+from core.common import Project
 
 
 def test_ensure_creates_drop_folders_and_guide(tmp_path):

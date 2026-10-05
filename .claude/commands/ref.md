@@ -14,4 +14,4 @@ Arguments: `$ARGUMENTS`
    - **Structure:** beat list with timestamps (hook → context → value → payoff → CTA).
    - **Steal this for us:** 3–5 concrete, adaptable ideas for the owner's content (techniques, not their words or footage).
    Summarise in your own words; quote at most one short line. Their footage, words and branding are not ours to reuse — reference only.
-3. Report to the owner in ≤8 lines and offer to save useful patterns: `pipeline.memory remember … --kind lesson` (brain promotions need a yes).
+3. Report to the owner in ≤8 lines and offer to save useful patterns: `core.memory remember … --kind lesson` (brain promotions need a yes).

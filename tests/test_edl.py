@@ -1,7 +1,7 @@
 from conftest import words_from
 
-from pipeline.auto_edl import build_segments
-from pipeline.timeline import layout, map_words, snap
+from harnesses.studio.auto_edl import build_segments
+from harnesses.studio.timeline import layout, map_words, snap
 
 
 def test_segments_cut_fillers_and_long_gaps():
@@ -33,8 +33,8 @@ def test_map_words_to_output_time():
 
 
 def test_refresh_captions_keeps_hand_edits(tmp_path):
-    from pipeline.auto_edl import refresh_captions
-    from pipeline.common import Project, save_json
+    from harnesses.studio.auto_edl import refresh_captions
+    from core.common import Project, save_json
     proj = Project(tmp_path / "p").ensure()
     words = words_from("we use claude code daily")
     save_json(proj.work / "transcript.json", {"words": words})

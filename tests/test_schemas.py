@@ -5,8 +5,8 @@ from pathlib import Path
 import jsonschema
 import pytest
 
-from pipeline.common import validate
-from pipeline.validate import check_edl_semantics, validate_file
+from core.common import validate
+from harnesses.studio.validate import check_edl_semantics, validate_file
 
 FIX = Path(__file__).parent / "fixtures"
 

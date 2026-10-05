@@ -1,6 +1,6 @@
 # Edit Styles (presets)
 
-Presets are applied by `pipeline/auto_edl.py` and rendered by `remotion/`. The editor agent may override per segment.
+Presets are applied by `harnesses/studio/auto_edl.py` and rendered by `harnesses/studio/remotion/`. The editor agent may override per segment.
 
 | Preset | Cuts | Zooms | Captions | Graphics | Music |
 |---|---|---|---|---|---|

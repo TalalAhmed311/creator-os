@@ -1,7 +1,7 @@
 from conftest import words_from
 
-from pipeline.collage import beat_images, check_layout, layout_from_plan, load_theme, make_blocks, sentence_cuts
-from pipeline.common import Project
+from core.common import Project
+from harnesses.studio.collage import beat_images, check_layout, layout_from_plan, load_theme, make_blocks, sentence_cuts
 
 
 def test_images_appear_in_spoken_order_then_replace_oldest():

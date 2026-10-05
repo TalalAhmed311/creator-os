@@ -4,8 +4,8 @@
 __pycache__/
 *.pyc
 .pytest_cache/
-remotion/node_modules/
-remotion/out/
+harnesses/studio/remotion/node_modules/
+harnesses/studio/remotion/out/
 
 # media & heavy outputs (projects keep their JSON contracts, scripts and reports)
 projects/*/raw/

@@ -46,7 +46,7 @@ Checks after prepare:
 **Sound.** Music optional — only from `assets/music/`, −18 to −22 dB, ducked. SFX from `assets/sfx/`: whoosh on punch-ins/transitions, pop on badges, max ~1 per 3 s. Target −14 LUFS (renderer does two-pass loudnorm).
 
 ## 3. Editing the EDL (data recipes)
-- Segments = **source** time; captions/graphics/SFX = **output** time. After changing segments: `.venv/bin/python -m pipeline.auto_edl <id> --refresh-captions` (keeps caption text fixes and highlights).
+- Segments = **source** time; captions/graphics/SFX = **output** time. After changing segments: `.venv/bin/python -m harnesses.studio.auto_edl <id> --refresh-captions` (keeps caption text fixes and highlights).
 - Swap a take: replace that beat's segment(s) `in/out` with the other take's `start/end` from `alignment.json`.
 - Punch-in: `"zoom": {"from": 1.18, "to": 1.2, "ease": "snap"}`. Push-in: `{"from": 1.0, "to": 1.06, "ease": "easeInOut"}`.
 - B-roll: `"overlay_broll": {"file": "raw/broll/screen.mov", "in": 2.0, "mode": "pip"}`.

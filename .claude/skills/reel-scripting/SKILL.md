@@ -18,7 +18,7 @@ An idea is ready only when it passes all four:
 - **Who cares.** Name the viewer: "devs building their first SaaS". If you can't, the hook will be generic.
 
 ## 2. Interview (≤5 questions, one message, answerable in a line)
-Use the pillar's questions; pre-fill from memory ("Day 14, right?"). Record answers verbatim in working memory (`pipeline.memory append <id> requirements "..."`). Owner's own words beat yours — reuse their phrases.
+Use the pillar's questions; pre-fill from memory ("Day 14, right?"). Record answers verbatim in working memory (`core.memory append <id> requirements "..."`). Owner's own words beat yours — reuse their phrases.
 
 ## 3. Hooks — always 3, different types, owner picks
 Each hook = **spoken** (≤10 words, ≤2.5 s) + **on-screen** (≤7 words, complements not copies) + **first-frame visual** (literally what's in frame 1).
@@ -42,7 +42,7 @@ Hook (≤3 s) → Context (1 line) → Value (fast) → Payoff (the promise, del
 
 ## 6. Outputs
 - `projects/<id>/brief.md` — the one idea, angle, proof, raw owner quotes.
-- `projects/<id>/plan.json` — must validate (`.venv/bin/python -m pipeline.validate projects/<id>`). Beats `hook, context, value(-n), payoff, cta`; the hook beat's `spoken` = chosen hook. Set `day_n` (BIP) / `series` (AI Explained), `target_length_s`, `shot_list`, `broll_list`, `caption_draft` (line 1 restates the hook; 1–3 short lines; one CTA), `hashtags` (3–6, specific > generic).
+- `projects/<id>/plan.json` — must validate (`.venv/bin/python -m harnesses.studio.validate projects/<id>`). Beats `hook, context, value(-n), payoff, cta`; the hook beat's `spoken` = chosen hook. Set `day_n` (BIP) / `series` (AI Explained), `target_length_s`, `shot_list`, `broll_list`, `caption_draft` (line 1 restates the hook; 1–3 short lines; one CTA), `hashtags` (3–6, specific > generic).
 - `projects/<id>/script.md`:
   1. **Read-aloud** — beats as short paragraphs with labels.
   2. **Teleprompter** — one line per row, ≤7 words, blank line between beats, HOOK IN CAPS.
@@ -50,9 +50,9 @@ Hook (≤3 s) → Context (1 line) → Value (fast) → Payoff (the promise, del
 
 ## Process (with the tools)
 1. `./studio new <pillar> <slug>` (or via `/studio-plan`) → project id + working memory + memory load.
-2. Interview → brief → 3 hooks → **owner picks** (log choice + reason: `pipeline.memory append <id> decisions "..."`).
+2. Interview → brief → 3 hooks → **owner picks** (log choice + reason: `core.memory append <id> decisions "..."`).
 3. Script → validate → show teleprompter + shot list.
-4. Set status `waiting_on_me` (`pipeline.memory status <id> waiting_on_me`). The task continues in `/studio-edit` after the shoot — consolidate there, not here.
+4. Set status `waiting_on_me` (`core.memory status <id> waiting_on_me`). The task continues in `/studio-edit` after the shoot — consolidate there, not here.
 
 ## Self-check before handing over
 - [ ] Payoff stated in one sentence matches the hook's promise.

@@ -1,6 +1,6 @@
 import numpy as np
 
-from pipeline.sync_audio import SR, find_offset
+from harnesses.studio.sync_audio import SR, find_offset
 
 
 def test_cross_correlation_recovers_offset():
@@ -16,7 +16,7 @@ def test_cross_correlation_recovers_offset():
 
 
 def test_log_analyze(tmp_path, monkeypatch):
-    from pipeline import content_log
+    from harnesses.studio import content_log
     monkeypatch.setattr(content_log, "LOG", tmp_path / "log.csv")
     import csv
     with (tmp_path / "log.csv").open("w", newline="") as f:

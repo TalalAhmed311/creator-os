@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from pipeline import refs
+from core import refs
 
 
 @pytest.fixture

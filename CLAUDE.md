@@ -1,9 +1,20 @@
-# Personal AI Content Studio
+# creator-os
 
-Full spec: `AI_STUDIO_PLAN.md`. This file is the short version of the rules.
+A harness of harnesses for the owner's content. Plan for the whole system: `docs/HARNESS_PLAN.md`.
+Studio spec: `harnesses/studio/AI_STUDIO_PLAN.md`. This file is the short version of the rules.
+
+## Layout
+| Path | What |
+|---|---|
+| `core/` | shared by every harness: `common` (paths, Project, ffmpeg, JSON), `memory`, `providers/` (transcriber, face), `fetch/` (yt-dlp, Instagram), `media/` (convert, clip), `refs` (reference library), `schemas/` (plan/edl/carousel contracts), `cli` (`./studio`), `deps` (doctor) |
+| `harnesses/studio/` | Edit Bay, Design Desk (`carousel/`), Web Studio (`webstudio/`), Remotion templates (`remotion/`) |
+| `harnesses/research/`, `writer/`, `hq/` | planned — see `docs/HARNESS_PLAN.md` |
+| `brain/`, `memory/`, `projects/`, `assets/`, `references/`, `plans/` | shared data at the repo root (unchanged) |
+
+A harness may import `core`; `core` never imports a harness (except `core/cli.py`, which routes to them, and `core/deps.py`, which checks them).
 
 ## Principle
-Claude is the editor's brain, not the mouse. Agents decide and write **structured data** (`plan.json`, `edl.json`, `carousel.json`); deterministic tools (`pipeline/`, `remotion/`, `carousel/`) execute it. Never automate a GUI editor.
+Claude is the editor's brain, not the mouse. Agents decide and write **structured data** (`plan.json`, `edl.json`, `carousel.json`); deterministic tools (`core/`, `harnesses/studio/`, its `remotion/` and `carousel/`) execute it. Never automate a GUI editor.
 
 ## Flows (slash commands in `.claude/commands/`)
 | Command | Does |
@@ -34,9 +45,9 @@ The main session acts as the **showrunner** (`.claude/agents/showrunner.md`) and
 
 ## Hard rules
 - **Never modify or delete anything in `projects/*/raw/`.** All work in `work/` and `out/`.
-- Every flow starts with Memory Load and ends with Memory Consolidation (`pipeline/memory.py`). Every task has `memory/working/<project_id>.md`; agents append, never overwrite.
-- Contracts must validate before rendering: `.venv/bin/python -m pipeline.validate projects/<id>`.
-- Always render a low-res preview (`pipeline.edit preview`) before the final render.
+- Every flow starts with Memory Load and ends with Memory Consolidation (`core/memory.py`). Every task has `memory/working/<project_id>.md`; agents append, never overwrite.
+- Contracts must validate before rendering: `.venv/bin/python -m harnesses.studio.validate projects/<id>`.
+- Always render a low-res preview (`harnesses.studio.edit preview`) before the final render.
 - Approval gates: owner picks the hook, approves the final, approves any change to `brain/`.
 - `brain/` = expertise the owner controls (human-readable). `memory/` = experience. Propose promotions from memory → brain at seen ≥3; never edit `brain/` without a yes.
 - Background images for carousels: backgrounds only, never generated text.
@@ -44,17 +55,17 @@ The main session acts as the **showrunner** (`.claude/agents/showrunner.md`) and
 - **Delete nothing the owner didn't ask to delete** (downloads, references, originals). Show what would go, then wait for a yes.
 
 ## Interfaces & dependencies
-- `./studio web` — the owner's browser editor (webstudio/); it edits the same edl.json / carousel.json, so re-read those files before changing them.
+- `./studio web` — the owner's browser editor (harnesses/studio/webstudio/); it edits the same edl.json / carousel.json, so re-read those files before changing them.
 - `./studio help` — one entry point for every tool. `./studio doctor` — what's installed, which backends are active.
-- Transcription and face tracking are **pluggable interfaces** (`pipeline/providers/`), chosen in `studio.json` (`"auto"` = first available):
+- Transcription and face tracking are **pluggable interfaces** (`core/providers/`), chosen in `studio.json` (`"auto"` = first available):
   transcriber `mlx-whisper | whisper-cpp | sidecar (raw/transcript.srt|vtt|json) | none`; face `mediapipe | opencv | center`.
   With `none`, the Edit Bay still works: cuts dead air by silence, captions off.
 - Dependencies: `requirements/core.txt` (always) + optional packs `requirements/transcribe-mlx.txt`, `requirements/vision.txt` (OpenCV), `requirements/face-mediapipe.txt`
   (`scripts/setup.sh --with transcribe`). Never install torch — mlx-whisper goes in with `--no-deps`.
 
 ## Running tools
-Python: `.venv/bin/python -m pipeline.<tool> <project> …` (each tool has `--help`, caches in `work/`, is safe to re-run).
-Timestamps: `edl.segments` = SOURCE time; captions/graphics/sfx = OUTPUT time. After editing segments: `pipeline.auto_edl <id> --refresh-captions`.
+Python: `.venv/bin/python -m harnesses.studio.<tool> <project> …` (shared tools: `core.<tool>`, e.g. `core.memory`) (each tool has `--help`, caches in `work/`, is safe to re-run).
+Timestamps: `edl.segments` = SOURCE time; captions/graphics/sfx = OUTPUT time. After editing segments: `.venv/bin/python -m harnesses.studio.auto_edl <id> --refresh-captions`.
 Collage around the speaker: a plan beat with `collage.images` → `edl.layout` (themes in `brain/video-themes/`, rules in `brain/edit-styles.md`); rebuild with `./studio collage <id> --from-plan`.
 Tests: `.venv/bin/python -m pytest -q`. Setup check: `scripts/setup.sh`.
 

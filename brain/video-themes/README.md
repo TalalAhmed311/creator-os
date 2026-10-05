@@ -1,7 +1,7 @@
 # Video theme packs (collage layouts)
 
 One folder per theme. `theme.json` describes a **collage layout**: image tiles around (or behind) you while you talk.
-Used by `edl.json → layout` (`python -m pipeline.collage <project> --theme <name>`), rendered by `remotion/src/Collage.tsx`.
+Used by `edl.json → layout` (`python -m harnesses.studio.collage <project> --theme <name>`), rendered by `harnesses/studio/remotion/src/Collage.tsx`.
 
 | Theme | Look |
 |---|---|

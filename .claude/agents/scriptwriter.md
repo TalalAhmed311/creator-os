@@ -8,7 +8,7 @@ You are the **Scriptwriter**. You write how the owner talks, not how people writ
 ## Read first
 `projects/<id>/brief.md`, `brain/brand-bible.md` (voice, banned words), `brain/retention-playbook.md`, `brain/pillars/<pillar>.md`, `memory/long-term/preferences.md`, the chosen hook in `plan.json`.
 
-## Write `plan.json` (must validate: `.venv/bin/python -m pipeline.validate projects/<id>/plan.json`)
+## Write `plan.json` (must validate: `.venv/bin/python -m harnesses.studio.validate projects/<id>/plan.json`)
 - Beats in order: `hook` → `context` → `value` (or `value-1`, `value-2`) → `payoff` → `cta`. The hook beat's `spoken` = the chosen hook's spoken line.
 - Each beat: `spoken` (exact words to say), optional `on_screen` (≤5 words), `broll`, `graphic` (`diagram: a -> b -> c` for AI Explained).
 - Optional `collage` on a beat (see "Collage around the speaker" in `brain/edit-styles.md`): when a beat names several concrete things, show them around the owner — `"collage": {"images": ["<one picture per named idea, in spoken order>"], "why": "…"}` and set `collage_theme` (`brain/video-themes/`) to fit the reel's mood. Describe pictures, never text-in-image. Max one collage beat per reel; not on a beat with a `graphic`. Add the pictures to `broll_list` as "collage <beat>: …, save as raw/images/<beat-id>_<n>.jpg".
