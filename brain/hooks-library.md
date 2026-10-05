@@ -35,4 +35,4 @@ The first 1–3 seconds decide whether anyone keeps watching. **Every hook = spo
 - **Resources:** `callout` or `result_first` on slide 1 ("7 free resources to actually understand LLMs").
 
 ## The three-option rule
-The hook-specialist always returns 3 hooks of **different types**. At least one must be the "safe" pick for the pillar and one should be a bolder angle. Check `content-log.csv` / `memory/long-term/lessons.md` for which types have performed for me.
+The hook-specialist always returns 3 hooks of **different types**. At least one must be the "safe" pick for the pillar and one should be a bolder angle. Check `./studio hq review` (own results) and `./studio research insight top --kind hook` / `memory/long-term/lessons.md` for which types have performed for me.

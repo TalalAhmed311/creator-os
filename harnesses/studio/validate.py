@@ -1,7 +1,7 @@
 """Validate contract files against core/schemas/.
 
-  python -m harnesses.studio.validate <file.json> [--schema plan|edl|carousel]
-  python -m harnesses.studio.validate <project>          # validates plan.json / edl.json / carousel.json if present
+  python -m harnesses.studio.validate <file.json> [--schema plan|edl|carousel|post]
+  python -m harnesses.studio.validate <project>          # validates plan.json / edl.json / carousel.json / post.json if present
 """
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ import jsonschema
 from core.common import Project, load_json, validate
 from harnesses.studio.collage import check_layout
 
-KNOWN = {"plan.json": "plan", "edl.json": "edl", "carousel.json": "carousel"}
+KNOWN = {"plan.json": "plan", "edl.json": "edl", "carousel.json": "carousel", "post.json": "post"}
 
 
 def check_edl_semantics(edl: dict) -> list[str]:
@@ -57,7 +57,7 @@ def validate_file(path: Path, schema: str | None = None) -> list[str]:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("target")
-    ap.add_argument("--schema", choices=["plan", "edl", "carousel"])
+    ap.add_argument("--schema", choices=["plan", "edl", "carousel", "post"])
     a = ap.parse_args(argv)
     t = Path(a.target)
     files = [t] if t.suffix == ".json" else [f for f in (Project(a.target).root / n for n in KNOWN) if f.exists()]

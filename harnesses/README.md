@@ -5,10 +5,10 @@ Each harness is one job of creator-os: its own Python tools, plus agents/command
 
 | Harness | Status | Does | Commands |
 |---|---|---|---|
-| `studio/` | live | raw footage → finished reel (Edit Bay), carousels (Design Desk), Web Studio | `/studio-*`, `/carousel`, `/ref`, `/clip`, `/convert`, `/yt`, `/ig`, `/log` |
-| `research/` | planned (Phase 3) | creator database, content analysis, top-5 insights | `/research-*` |
-| `writer/` | planned (Phase 4) | platform-specific drafts (IG reel/carousel, LinkedIn, X) from insights | `/write-*` |
-| `hq/` | planned (Phase 5) | own-content DB, daily metrics sync, learning loop across platforms | `/hq-*` |
+| `studio/` | live | raw footage → finished reel (Edit Bay), carousels (Design Desk), Web Studio | `/studio-*`, `/carousel`, `/ref`, `/clip`, `/convert`, `/yt`, `/ig` |
+| `research/` | live | creator database, content analysis, top-5 insights (`./studio research`) | `/research-analyse`, `/research-creators` |
+| `writer/` | live | platform-specific drafts (IG reel/carousel, LinkedIn, X) from insights (`./studio write`) | `/write`, `/write-from` |
+| `hq/` | live | own-content DB, daily metrics sync, learning loop across platforms (`./studio hq`) | `/hq-log` (`/log`), `/hq-sync`, `/hq-review`, `/hq-account`, `/hq-repurpose` |
 
 Rules for a new harness:
 - Python lives in `harnesses/<name>/` and runs as `.venv/bin/python -m harnesses.<name>.<tool>`; add a route in `core/cli.py`.

@@ -1,6 +1,6 @@
-# How to use the studio
+# How to use creator-os
 
-Four jobs, each with its own guide below. Each job is backed by an **expert skill** that Claude loads automatically, so you get a strategist, a scriptwriter, an editor or a curator, not a generic assistant.
+Seven jobs, each with its own guide below. Each job is backed by an **expert skill** that Claude loads automatically, so you get a strategist, a scriptwriter, an editor or a curator, not a generic assistant.
 
 | # | Job | Start it with | Expert skill | You end up with |
 |---|---|---|---|---|
@@ -8,11 +8,14 @@ Four jobs, each with its own guide below. Each job is backed by an **expert skil
 | 2 | [Reel idea & script](#2-reel-idea--script) | `/studio-plan` | `reel-scripting` | hooks, script, teleprompter, shot list |
 | 3 | [Raw footage → reel](#3-raw-footage--reel) | `/studio-edit` | `raw-to-reel` | `final.mp4`, cover, caption, DaVinci Resolve file |
 | 4 | [Resource carousel](#4-resource-carousel) | `/carousel` | `resource-carousel` | slide PNGs, LinkedIn PDF, caption |
+| 5 | [Research what works](#5-research-what-works) | `/research-analyse`, `/research-creators` | `content-research` | outlier posts, breakdowns, top-5 insights, creator database |
+| 6 | [Write for a platform](#6-write-for-a-platform) | `/write`, `/write-from` | `platform-writing` | LinkedIn post, X post/thread, IG reel script/carousel: drafts you post yourself |
+| 7 | [HQ: your posts & numbers](#7-hq-your-posts--numbers) | `/hq-log`, `/hq-sync`, `/hq-review` | `content-ops` | every post logged, metrics at day 1/3/7/30, what works per account |
 
 **Before anything else, once:** open Claude Code in this folder and run `/studio-setup`. It fills in your brand bible (who you are, product, audience, voice, colours, handle), and every job uses it.
 
 ```bash
-cd ~/Documents/build-in-public/personal-studio
+cd ~/Documents/build-in-public/personal-studio   # creator-os after the folder rename
 claude
 ```
 
@@ -171,11 +174,60 @@ open projects/<id>/out/slides
 
 ---
 
+## 5. Research what works
+
+**Two jobs:** study content (what beats a creator's normal reach, and why) and keep the creator database current.
+
+```
+/research-analyse claude code tutorials instagram      # or: @tenfoldmarc · or a post URL
+/research-creators discover "ai automation" linkedin   # find new creators → candidates
+/research-creators review                              # track or drop candidates
+```
+- The database starts with your 75-creator Instagram research (20 tracked). Every number keeps its source and date.
+- A post's **outlier score** = its views ÷ that creator's normal. The analyst studies the top ones (and a few flops), breaks each down
+  (hook, structure, visuals, pacing, CTA) and writes **insights**: patterns with the posts that prove them. The top 5 feed the writer.
+- Research uses Claude's connectors (Exa search, the browser, yt-dlp for public videos). It only reads public posts and never logs in,
+  likes or follows. Instagram play counts aren't readable without a login, so the analyst reads them off the page.
+- Reports: `data/reports/research/`. Terminal: `./studio research --help`.
+
+## 6. Write for a platform
+
+```
+/write linkedin how I picked Curio's tech stack
+/write x thread first 100 users for Curio
+/write instagram carousel 7 free courses to learn agents
+/write-from https://www.instagram.com/reel/…   # their mechanism, your topic and voice
+```
+- Each account's profile (`brain/accounts/`) decides platform, audience and voice; playbooks are in `brain/platforms/`.
+- Every draft cites the insights it uses and gives you **3 hooks of different types — you pick**. Text drafts are checked
+  (X 280 chars per post, LinkedIn hook before "see more", links in the first comment) and written to `post.md`, ready to paste.
+  Reels go to the Writers' Room → Edit Bay; carousels to the Design Desk.
+- **Nothing is ever posted for you.** You post, then log it (next section).
+
+## 7. HQ: your posts & numbers
+
+```
+/hq-log x-curio https://x.com/…/status/…   # after you post — links the draft, starts the metrics
+/hq-sync                                   # metrics for posts at day 1, 3, 7, 30
+/hq-review                                 # what works per account, vs that account's own normal
+/hq-account linkedin                       # set up / update an account profile
+/hq-repurpose <url>                        # a winner → drafts for your other platforms
+```
+- Metrics come from the source set per platform in `studio.json` → `"metrics"`. Instagram reads via the Graph API if you set it up
+  (put `IG_ACCESS_TOKEN` and `IG_USER_ID` in `~/.config/creator-os/env`, never in the repo); otherwise public counters. Anything it can't
+  read goes to `data/hq/pending-metrics.md`, with the exact command to add the number. Analytics exports (CSV) import in one go:
+  `./studio hq metrics import file.csv --source linkedin-export`.
+- **Daily, automatically:** `./studio hq schedule --install` runs the sync every morning at 9 (launchd). `./studio hq schedule --uninstall` removes it.
+- Reviews compare posts by format, hook type, pillar, length, weekday and which research insight they used. Findings become lessons;
+  anything seen 3+ times is *proposed* for your playbooks.
+- Your data lives in `data/creator-os.db` (not in git). Back it up into git with `./studio db export` (→ `data/export/`).
+
 ## After you post (every job)
 ```
-/log <project-id> <post url>
+/hq-log <account> <post url>        (/log works too)
 ```
-Paste views, average watch %, likes, comments, saves and shares. Every 5 posts the strategist tells you what's working (for example, "your failure-story hooks get 2× watch time"), and the weekly planner uses that.
+It links the post to its draft and project; `/hq-sync` collects the numbers and `/hq-review` tells you what's working
+(for example, "your mistake hooks reach 2.1× your median on X").
 
 ## Memory
 - `/remember I hate yellow captions`: saved as a preference and applied from then on.

@@ -26,3 +26,8 @@ tests/media/*.aiff
 .DS_Store
 inspiration/*
 !inspiration/.gitkeep
+
+# creator-os database (commit `./studio db export` → data/export/ instead)
+data/*.db
+data/*.db-*
+data/hq/

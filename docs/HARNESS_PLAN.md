@@ -1,6 +1,6 @@
 # creator-os — Harness Plan
 
-Status: **Phase 0–1 done** (baseline commit, restructure into `core/` + `harnesses/studio/`) · next: Phase 2 data layer · 2026-10-05
+Status: **Phases 0–5 built; Phase 6 scaffolded** — waiting on the owner's account details (`/hq-account`) · 2026-10-06
 
 `personal-studio` grows into **creator-os**: one repo, several harnesses that share code and one database.
 Same principle as today: Claude decides and writes **structured data**; deterministic tools execute it.
@@ -120,16 +120,29 @@ every number stored with its source and date.
 |---|---|---|
 | 0 ✅ | **Initial git commit** (repo has none — baseline before moving files) | clean `git log` |
 | 1 ✅ | **Restructure** into `core/` + `harnesses/studio/`; keep `./studio` and every existing command working; rename repo to `creator-os` (folder rename pending — see note below) | `pytest` green, `./studio doctor` OK, `/studio-edit` dry run OK |
-| 2 | **Data layer**: SQLite schema + migrations, import the 75-creator seed, migrate `content-log.csv` | `./studio db stats` shows 75 creators with sourced snapshots |
-| 3 | **Research agent**: analyse + creator discover/refresh, top-5 insights | runs on the 20-creator research set, produces insights + report |
-| 4 | **Writer agent**: IG reel / carousel, LinkedIn, X outputs, link-as-reference | one idea → drafts for all three platforms |
-| 5 | **HQ**: content DB, `/hq-log`, daily `hq sync` (scheduled), weekly learning pass | metrics appear daily without manual steps where an API/export exists |
-| 6 | **Account profiles**: owner's detailed page plans → `brain/accounts/` | writer + HQ use per-account goals |
+| 2 ✅ | **Data layer**: SQLite schema + migrations, import the 75-creator seed, migrate `content-log.csv` | `./studio db stats` shows 75 creators with sourced snapshots |
+| 3 ✅ | **Research agent**: analyse + creator discover/refresh, top-5 insights | runs on the 20-creator research set, produces insights + report |
+| 4 ✅ | **Writer agent**: IG reel / carousel, LinkedIn, X outputs, link-as-reference | one idea → drafts for all three platforms |
+| 5 ✅ | **HQ**: content DB, `/hq-log`, daily `hq sync` (scheduled), weekly learning pass | metrics appear daily without manual steps where an API/export exists |
+| 6 ◐ | **Account profiles**: owner's detailed page plans → `brain/accounts/` | writer + HQ use per-account goals |
+
+## What was built (2026-10-06)
+
+| Phase | Result |
+|---|---|
+| 2 | `core/db` (SQLite, migrations, provenance on every number), `./studio db stats|sql|export|restore`; 75 creators, 217 sourced snapshots from the seed; `content-log.csv` importer (`./studio hq import-log`) |
+| 3 | `harnesses/research` + `./studio research …`: creators (score, track/drop, link platforms, snapshots), posts (yt-dlp download + analysis, text posts via connectors, refresh), outlier ranking, insights (merge + rank), reports; skill `content-research`, agents `research-analyst`, `creator-scout`, `/research-analyse`, `/research-creators`. Verified on a live IG reel. |
+| 4 | `harnesses/writer` + `./studio write …`: context brief per account, drafts as projects (`plan.json` / `carousel.json` / new `post.json` contract), platform rules (X 280, LinkedIn see-more/links), `post.md` copy-paste; `brain/platforms/*`; skill `platform-writing`, agent `platform-writer`, `/write`, `/write-from` |
+| 5 | `harnesses/hq` + `./studio hq …`: account sync, log (closes drafts), metrics add/CSV import, 1/3/7/30-day `due`/`sync` with providers (`instagram-graph`, `ytdlp`, `manual`), pending list, review vs own median (format, hook, pillar, length, weekday, insight used), launchd daily job (`hq schedule --install`); skill `content-ops`, agent `hq-analyst`, `/hq-log` (`/log`), `/hq-sync`, `/hq-review`, `/hq-account`, `/hq-repurpose`. Old `content_log.py` removed. |
+| 6 | `brain/accounts/` with `instagram-buildwith.talal`, `x-curio`, `linkedin-talal` (TODO fields) — filled by `/hq-account` once the owner describes the pages |
 
 ## Open items
+- **Owner:** describe each page (`/hq-account instagram|x|linkedin`) — X handle, LinkedIn status, audiences, goals, cadence.
+- **Owner:** install the daily sync when ready: `./studio hq schedule --install`.
+- **Owner (optional):** Instagram Graph API — Business/Creator account + Meta app → `IG_ACCESS_TOKEN`, `IG_USER_ID` in
+  `~/.config/creator-os/env`. Without it, IG views come from the app or an export (yt-dlp can't read IG play counts).
+- First real research run: `/research-analyse` on the 20-creator set (each run ≤ 20 downloads).
 - Folder rename `personal-studio` → `creator-os`: do it outside a Claude session, then run `scripts/setup.sh`
   (venv console scripts like yt-dlp carry absolute paths) and update `.claude/launch.json`.
-- Instagram: Business/Creator account + Meta app for the Graph API? (decides the metrics provider in Phase 5)
-- LinkedIn account: exists / planned? (Phase 6)
-- X: API budget or export/browser/manual? (Phase 5)
+- X metrics: `ytdlp` reads video posts only; text posts → manual/export unless an API budget is added later.
 - Creator seeds for LinkedIn and X (the current seed is Instagram only).

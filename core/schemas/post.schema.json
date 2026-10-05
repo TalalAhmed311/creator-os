@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "post.json — a text-first draft (LinkedIn post, X post or thread). Draft-only: the owner publishes it.",
+  "type": "object",
+  "required": ["platform", "account", "format", "hooks", "chosen_hook", "insights_used"],
+  "additionalProperties": false,
+  "properties": {
+    "platform": { "enum": ["linkedin", "x", "instagram"] },
+    "account": { "type": "string", "description": "brain/accounts/<id>.md stem" },
+    "format": { "enum": ["text", "post", "thread", "caption"] },
+    "topic": { "type": "string" },
+    "hooks": {
+      "type": "array", "minItems": 3, "maxItems": 3,
+      "description": "Three different hook types; the owner picks one.",
+      "items": {
+        "type": "object", "required": ["type", "text"], "additionalProperties": false,
+        "properties": {
+          "type": { "type": "string", "description": "brain/hooks-library.md type (result_first, contrarian, …)" },
+          "text": { "type": "string", "minLength": 1 },
+          "why": { "type": "string" }
+        }
+      }
+    },
+    "chosen_hook": { "type": ["integer", "null"], "minimum": 0, "maximum": 2 },
+    "body": { "type": "string", "description": "Full post text (text / post / caption formats), starting with the chosen hook." },
+    "thread": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "X thread, one string per post." },
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["kind", "description"], "additionalProperties": false,
+        "properties": {
+          "kind": { "enum": ["image", "screenshot", "video", "gif", "pdf"] },
+          "description": { "type": "string" },
+          "path": { "type": ["string", "null"] },
+          "attach_to": { "type": "integer", "minimum": 0, "description": "thread index (X)" }
+        }
+      }
+    },
+    "cta": { "type": ["string", "null"] },
+    "first_comment": { "type": ["string", "null"], "description": "Links go here, not in the body (reach)." },
+    "hashtags": { "type": "array", "items": { "type": "string", "pattern": "^#?[A-Za-z0-9_]+$" } },
+    "insights_used": { "type": "array", "items": { "type": "integer" } },
+    "reference_url": { "type": ["string", "null"] },
+    "notes": { "type": "string" }
+  }
+}

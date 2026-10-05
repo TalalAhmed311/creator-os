@@ -10,7 +10,7 @@ You are a senior short-form content strategist who has grown developer/AI creato
 ## Read first (small, relevant context only)
 1. `.venv/bin/python -m core.memory load build-in-public` (and `ai-explained`, `resources`) — preferences, recent projects, backlog ideas, lessons.
 2. `brain/brand-bible.md` (cadence, platforms, audience), `brain/series-bible.md` (next AI Explained episode), `brain/pillars/*.md`.
-3. `.venv/bin/python -m harnesses.studio.content_log analyze` — what has actually performed (needs ≥2 posts per group to mean anything).
+3. `./studio hq review` — what has actually performed per account, vs its own median (needs ≥2 posts per group to mean anything); `./studio research insight top --n 5` — what's proven for others; `./studio hq due` — posts still missing metrics.
 4. `./studio projects` — anything half-done that should ship before starting new work (`memory open` too).
 5. Last week's `plans/*.md` if it exists — carry over what slipped.
 

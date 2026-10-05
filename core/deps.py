@@ -69,7 +69,20 @@ def report(project_root: Path | None = None) -> dict:
         "transcriber": {"configured": cfg["transcriber"], "will_use": pick(tr_rows, cfg["transcriber"], transcription.AUTO_ORDER), "backends": tr_rows},
         "face_detector": {"configured": cfg["face_detector"], "will_use": pick(face_rows, cfg["face_detector"], face.AUTO_ORDER), "backends": face_rows},
         "config_file": str((STUDIO / "studio.json").relative_to(STUDIO)),
+        "creator_os": creator_os(),
     }
+
+
+def creator_os() -> dict:
+    """Database, accounts and metrics providers — informational, never blocks 'ready'."""
+    from core import accounts, db
+    from harnesses.hq import providers
+
+    con = db.connect()
+    rows = {t: con.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0] for t in ("creators", "posts", "insights", "drafts")}
+    accs = accounts.sync(con)
+    return {"database": str(db.db_path()), "rows": rows, "accounts": accs,
+            "metrics": {p: providers.configured(p) for p in sorted({a["platform"] for a in accs})}}
 
 
 def print_report(r: dict) -> None:
@@ -82,6 +95,11 @@ def print_report(r: dict) -> None:
         print(f"\n{title} — configured: {sec['configured']} → using: \033[1m{sec['will_use']}\033[0m")
         for b in sec["backends"]:
             print(f"  {mark(b['ok'])} {b['name']:<14} {b['status']}")
+    c = r["creator_os"]
+    print(f"\ncreator-os — {c['database']}")
+    print("  " + " · ".join(f"{n} {k}" for k, n in c["rows"].items()))
+    for a in c["accounts"]:
+        print(f"  {a['id']:<28} {a['platform']:<10} @{a['handle'] or 'TODO':<18} {a['status'] or ''}  metrics: {c['metrics'].get(a['platform'])}")
     print(f"\nChange backends in {r['config_file']} (\"transcriber\": \"auto\" | \"mlx-whisper\" | \"whisper-cpp\" | \"sidecar\" | \"none\").")
     print("Studio ready." if r["ready"] else "Some required pieces are missing (✗ above).")
 

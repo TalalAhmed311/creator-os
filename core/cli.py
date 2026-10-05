@@ -17,8 +17,14 @@
   ./studio ref <add|analyze|list|rm> …                     reference library: download + transcript + hook/pacing analysis
   ./studio clip <file|url> --from 1:23 --to 1:45 [--audio mp3|wav|m4a|none] [--keep-video] [--delete-original]
   ./studio memory <subcommand> …          create/append/load/consolidate/remember/search/open
-  ./studio log <add|analyze|count> …      content log / learning loop
+  ./studio log <account> <url> [--draft N] [--views N …]   log a published post (= ./studio hq log)
   ./studio projects                       list projects and their state
+
+creator-os harnesses:
+  ./studio db <init|stats|sql|export|restore>          the shared database (data/creator-os.db)
+  ./studio research <creators|post|outliers|insight|report|import-seed> …   creator DB + content analysis
+  ./studio write <context|new|list|show|status|validate> …                  platform drafts (draft-only)
+  ./studio hq <accounts|log|metrics|sync|due|review|schedule> …             own content, daily metrics, learning loop
 """
 from __future__ import annotations
 
@@ -46,10 +52,14 @@ ROUTES = {
     "clip": ("core.media.clip", []),
     "ref": ("core.refs", []),
     "memory": ("core.memory", []),
-    "log": ("harnesses.studio.content_log", []),
+    "log": ("harnesses.hq.cli", ["log"]),
     "cover": ("harnesses.studio.make_cover", []),
     "export": ("harnesses.studio.export_nle", []),
     "qc": ("harnesses.studio.qc_frames", []),
+    "db": ("core.db.cli", []),
+    "research": ("harnesses.research.cli", []),
+    "write": ("harnesses.writer.cli", []),
+    "hq": ("harnesses.hq.cli", []),
 }
 
 

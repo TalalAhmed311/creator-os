@@ -1,6 +1,6 @@
 # Personal AI Content Studio — Build Plan
 
-> **Layout note (creator-os restructure, 2026-10-05):** `pipeline/` was split into `core/` (shared: common, memory, providers, schemas, fetch, media, refs, cli) and `harnesses/studio/` (Edit Bay tools, `carousel/`, `webstudio/`, `remotion/`). Paths below are updated; the spec is otherwise unchanged. System plan: `docs/HARNESS_PLAN.md`.
+> **Layout note (creator-os restructure, 2026-10-05):** `pipeline/` was split into `core/` (shared: common, memory, providers, schemas, fetch, media, refs, cli) and `harnesses/studio/` (Edit Bay tools, `carousel/`, `webstudio/`, `remotion/`). Paths below are updated; the spec is otherwise unchanged — except the content log: `/log` + `content-log.csv` are replaced by the HQ harness (`/hq-log`, database-backed, per account). System plan: `docs/HARNESS_PLAN.md`.
 
 > **For Claude Code:** This is the full spec for a local, Claude-powered content studio on macOS. Read it end to end, then build it phase by phase (see §11). Ask the owner the open questions in §12 before Phase 1. Keep every step runnable and tested before moving on.
 

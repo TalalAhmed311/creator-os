@@ -1,6 +1,6 @@
 # Personal AI Content Studio
 
-> Part of **creator-os** — this studio is the first harness (`harnesses/studio/`). Research, Writer and HQ harnesses are planned in [`docs/HARNESS_PLAN.md`](docs/HARNESS_PLAN.md).
+> Part of **creator-os** — this studio is one harness (`harnesses/studio/`), next to Research, Writer and HQ. System plan: [`docs/HARNESS_PLAN.md`](docs/HARNESS_PLAN.md); how to use all of it: [`INSTRUCTIONS.md`](INSTRUCTIONS.md).
 
 A content studio that lives in one folder on your Mac. Claude plans your content with you, edits your raw footage into finished vertical reels, and designs resource carousels. It remembers what you like and learns what performs.
 
@@ -231,7 +231,10 @@ personal-studio/
 │   │   ├── remotion/       #   React video templates: captions, zooms, reframing, graphics, cover
 │   │   ├── carousel/       #   slide template + renderer
 │   │   └── webstudio/      #   browser editor (./studio web): server.py + static/
-│   └── research/ writer/ hq/   # planned (docs/HARNESS_PLAN.md)
+│   ├── research/           # creator database + content analysis → insights (./studio research)
+│   ├── writer/             # drafts per account/platform (./studio write)
+│   └── hq/                 # own posts, daily metrics, learning loop (./studio hq)
+├── data/                   # creator-os.db (git-ignored) · export/ (committed backup) · reports/
 ├── assets/                 # music/ sfx/ fonts/ logos/ broll/ models/
 ├── requirements/           # core.txt + optional packs
 ├── scripts/setup.sh

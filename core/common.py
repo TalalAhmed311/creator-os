@@ -180,3 +180,19 @@ def read_glossary() -> list[str]:
 def require_tool(name: str) -> None:
     if not shutil.which(name):
         raise SystemExit(f"missing tool: {name} — run scripts/setup.sh")
+
+
+def table(rows: list[dict], cols: list[str], widths: dict[str, int] | None = None) -> str:
+    """Plain-text table for terminal output (agents can ask for --json instead)."""
+    if not rows:
+        return "(none)"
+    widths = widths or {}
+    def cell(v, c):
+        s = "" if v is None else (f"{v:,.0f}" if isinstance(v, (int, float)) and not isinstance(v, bool) and abs(v) >= 1000 else str(v))
+        w = widths.get(c)
+        return s if not w or len(s) <= w else s[: w - 1] + "…"
+    data = [[cell(r.get(c), c) for c in cols] for r in rows]
+    w = [max(len(c), *(len(d[i]) for d in data)) for i, c in enumerate(cols)]
+    line = lambda xs: "  ".join(x.ljust(w[i]) for i, x in enumerate(xs)).rstrip()  # noqa: E731
+    return "\n".join([line(cols), line(["-" * x for x in w]), *(line(d) for d in data)])
+

@@ -24,16 +24,21 @@ from core.fetch import download
 
 log = get_logger("refs")
 REFS = STUDIO / "references"
-INFO_KEYS = ("id", "title", "channel", "uploader", "webpage_url", "duration", "view_count", "like_count",
-             "comment_count", "upload_date", "description")
+INFO_KEYS = ("id", "title", "channel", "uploader", "uploader_id", "webpage_url", "duration", "view_count", "like_count",
+             "comment_count", "repost_count", "upload_date", "timestamp", "description")
 
 
 # ---------------------------------------------------------------- add
 
+def probe(url: str) -> dict:
+    """yt-dlp metadata for a URL without downloading it (title, uploader, public counters, upload date …)."""
+    return json.loads(run([*download.ytdlp_cmd(), *download.js_args(), "--no-update", "--no-playlist",
+                           "--skip-download", "--dump-json", url], log).stdout.splitlines()[-1])
+
+
 def add(url: str, root: Path = REFS) -> Path:
     """Download into references/<id>/ and keep it. Re-running skips files already there."""
-    meta = json.loads(run([*download.ytdlp_cmd(), *download.js_args(), "--no-update", "--no-playlist",
-                           "--skip-download", "--dump-json", url], log).stdout.splitlines()[-1])
+    meta = probe(url)
     ref = root / re.sub(r"[^\w-]", "_", meta["id"])
     ref.mkdir(parents=True, exist_ok=True)
     save_json(ref / "info.json", {k: meta.get(k) for k in INFO_KEYS} | {"description": (meta.get("description") or "")[:2000]})
