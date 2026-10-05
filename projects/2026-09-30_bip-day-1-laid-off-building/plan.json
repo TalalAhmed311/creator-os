@@ -1,0 +1,116 @@
+{
+  "project_id": "2026-09-30_bip-day-1-laid-off-building",
+  "pillar": "build-in-public",
+  "edit_preset": "bip-raw",
+  "target_length_s": 64,
+  "platforms": [
+    "instagram",
+    "tiktok"
+  ],
+  "day_n": 1,
+  "series": {
+    "name": null,
+    "episode": null,
+    "next_tease": null,
+    "callbacks": []
+  },
+  "hooks": [
+    {
+      "type": "visual_break",
+      "spoken": "Yeah. I got laid off too.",
+      "on_screen": "I got laid off too.",
+      "first_frame_visual": "Microsoft layoffs headline, push-in; 5.6 s headline montage with rising tension music → hard stop → 0.45 s black → face"
+    },
+    {
+      "type": "curiosity_gap",
+      "spoken": "Getting laid off wasn't part of my plan.",
+      "on_screen": "This wasn't the plan.",
+      "first_frame_visual": "Headline montage, then face; follow-up line: 'Building my own thing wasn't either. But here we are.'"
+    },
+    {
+      "type": "callout",
+      "spoken": "Weird seeing layoffs in the news… then being one.",
+      "on_screen": "Then it was me.",
+      "first_frame_visual": "Slow push-in on a single layoff headline, silence, then face looks up at camera"
+    }
+  ],
+  "chosen_hook": null,
+  "beats": [
+    {
+      "id": "hook",
+      "spoken": "Yeah. I got laid off too.",
+      "on_screen": "I got laid off too.",
+      "broll": "Headline montage from owner's screenshots (Microsoft, Amazon 30,000, trueup.io chart, AI blamed 1 in 5, LDS, Indonesia 50,000, layoffs.fyi), hard music stop, 0.45 s black, then FACE",
+      "graphic": null
+    },
+    {
+      "id": "context",
+      "spoken": "I'm Talal. I'm an AI engineer. I was working remotely from Lahore, Pakistan, for a company abroad. While doing my MS in AI at LUMS, in Lahore. Then one day, it was just… over. And honestly, I'm figuring out what comes next.",
+      "on_screen": "Talal Ahmed · AI Engineer",
+      "broll": "FACE for 'I'm Talal. I'm an AI engineer.' then: map zoom world → Pakistan, single pin on Lahore (🧑‍💻), dashed link to 'Remote team' → bubble flips to 🎓 → LUMS photo + name tag → link snaps, 'Your access has been removed' → search bar",
+      "graphic": "lower_third: Talal Ahmed · AI Engineer"
+    },
+    {
+      "id": "value-1",
+      "spoken": "For years I've built AI systems. LLMs, RAG, agents. Turning ideas into real products. But they were always someone else's ideas. While I had a ridiculous number of my own sitting in my head.",
+      "on_screen": "LLMs → RAG → Agents → Products",
+      "broll": "Fast word stack + code on screen; last line on FACE; ideas.txt list filling up",
+      "graphic": "kinetic words: LLMs → RAG → Agents → Products"
+    },
+    {
+      "id": "value-2",
+      "spoken": "So instead of waiting for the next opportunity… I'm going to build.",
+      "on_screen": "I'm going to build.",
+      "broll": "Laptop opens → idea written → code → deploy in terminal; 'I'm going to build' on FACE",
+      "graphic": null
+    },
+    {
+      "id": "value-3",
+      "spoken": "One: build products from scratch. The experiments, the failures, hopefully some launches. Two: AI. What I've learned, and what I'm learning. LLMs, RAG, research papers. Three: build in public. Everything that happens along the way.",
+      "on_screen": "01 BUILD · 02 AI · 03 THE JOURNEY",
+      "broll": "01: code + terminal + product UI · 02: arXiv papers, Hugging Face, RAG diagram · 03: GitHub, late-night desk, walking",
+      "graphic": "pillar cards 01 / 02 / 03"
+    },
+    {
+      "id": "payoff",
+      "spoken": "I have no idea where this is going to take me. But I'm going to document it.",
+      "on_screen": null,
+      "broll": "FACE, one take, no cuts",
+      "graphic": null
+    },
+    {
+      "id": "cta",
+      "spoken": "Let's see what we can build.",
+      "on_screen": "BUILDING FROM SCRATCH · DAY 1",
+      "broll": "End card, cut to black",
+      "graphic": "badge: Day 1 · end card: Talal Ahmed — AI Engineer → Builder"
+    }
+  ],
+  "shot_list": [
+    "FACE 1 (hook): 'Yeah. I got laid off too.', look down, then up into the lens. Record 3 energies: flat, tired smile, direct.",
+    "FACE 2 (context): 'I'm Talal. I'm an AI engineer.'",
+    "FACE 3 (realization): 'While I had a ridiculous number of my own sitting in my head.', small smile on 'ridiculous'.",
+    "FACE 4 (decision): pause 1 s, then 'I'm going to build.', flat and certain, not hype.",
+    "FACE 5 (payoff): 'I have no idea where this is going to take me. But I'm going to document it.', one continuous take.",
+    "VOICEOVER: record every other line on the mic (can be done at the desk, no camera)."
+  ],
+  "broll_list": [
+    "Your own desk, wide (phone on a stack of books)",
+    "Closing the laptop lid (slow)",
+    "Opening the laptop lid + screen lighting your face",
+    "Scrolling LinkedIn / job applications (blur other people's names)",
+    "Typing close-up (hands + keyboard)",
+    "Your real product / app UI screen recording (teaser, 2–3 s)",
+    "Walking outside (from behind), coffee, working late with desk lamp",
+    "Optional: LUMS / university shots if you have them"
+  ],
+  "caption_draft": "Yeah. I got laid off too.\nAI engineer working remotely from Lahore, doing my MS in AI at LUMS. Now, instead of waiting for the next job, I'm going to build. Products, AI, and the whole messy journey. Day 1.\nFollow along and let's see what we can build.",
+  "hashtags": [
+    "#buildinpublic",
+    "#aiengineer",
+    "#laidoff",
+    "#lums",
+    "#pakistan",
+    "#day1"
+  ]
+}

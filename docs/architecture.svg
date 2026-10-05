@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1010" width="1400" height="1010" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/>
+    </marker>
+    <style>
+      .t { font-size: 15px; font-weight: 700; fill: #0f172a; }
+      .s { font-size: 12.5px; fill: #334155; }
+      .xs { font-size: 11.5px; fill: #475569; }
+      .h { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; fill: #64748b; }
+      .step { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.2; }
+      .flow { stroke: #475569; stroke-width: 1.6; fill: none; marker-end: url(#arr); }
+      .uses { stroke: #94a3b8; stroke-width: 1.4; stroke-dasharray: 5 4; fill: none; marker-end: url(#arrd); }
+    </style>
+  </defs>
+
+  <rect width="1400" height="1010" fill="#f8fafc"/>
+  <text x="40" y="38" font-size="22" font-weight="800" fill="#0f172a">Personal AI Content Studio — architecture</text>
+  <text x="40" y="60" class="s">Claude is the editor's brain, not the mouse: agents decide and write structured data; deterministic tools execute it.</text>
+
+  <!-- ============ ROW 1: owner + showrunner ============ -->
+  <rect x="40" y="82" width="170" height="76" rx="12" fill="#0f172a"/>
+  <text x="125" y="115" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">You</text>
+  <text x="125" y="136" text-anchor="middle" font-size="12" fill="#cbd5e1">ideas · footage · approvals</text>
+
+  <rect x="250" y="82" width="790" height="76" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="270" y="108" class="t">Claude Code session = Showrunner</text>
+  <text x="270" y="128" class="s">your single point of contact · runs the flow · approval gates (you pick the hook, approve the final, approve brain/ edits)</text>
+  <text x="270" y="147" class="xs" font-family="Menlo, monospace">/studio-setup  /studio-week  /studio-plan  /studio-edit  /carousel  /log  /remember  /recall  /studio-resume</text>
+  <path d="M210 120 H246" class="flow"/>
+
+  <!-- ============ ROW 2: agent departments ============ -->
+  <text x="40" y="192" class="h">AGENTS  .claude/agents/</text>
+  <text x="316" y="192" class="h">+ EXPERT SKILLS  .claude/skills/</text>
+
+  <rect x="40" y="202" width="320" height="118" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="1.4"/>
+  <text x="58" y="226" class="t">Writers' Room</text>
+  <text x="58" y="248" class="s">strategist — 3–5 question interview → brief.md</text>
+  <text x="58" y="267" class="s">hook-specialist — 3 hooks, you pick one</text>
+  <text x="58" y="286" class="s">scriptwriter — plan.json + script.md</text>
+  <text x="58" y="305" class="s">series-producer — AI Explained continuity</text>
+
+  <rect x="380" y="202" width="320" height="118" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="398" y="226" class="t">Edit Bay</text>
+  <text x="398" y="248" class="s">editor — story, best takes, pacing, zooms</text>
+  <text x="398" y="267" class="s">motion-designer — captions, graphics</text>
+  <text x="398" y="286" class="s">sound-designer — music, SFX, loudness</text>
+  <text x="398" y="305" class="s">critic — QC checklist, max 2 fix loops</text>
+
+  <rect x="720" y="202" width="320" height="118" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="738" y="226" class="t">Design Desk</text>
+  <text x="738" y="248" class="s">resource-curator — verified resources</text>
+  <text x="738" y="267" class="s">   → carousel.json copy</text>
+  <text x="738" y="286" class="s">carousel-designer — theme, background,</text>
+  <text x="738" y="305" class="s">   render + visual check</text>
+
+  <path d="M645 158 V198" class="flow"/>
+  <path d="M300 158 V198" class="flow"/>
+  <path d="M880 158 V198" class="flow"/>
+
+  <!-- ============ ROW 3: contracts ============ -->
+  <rect x="40" y="350" width="1000" height="64" rx="12" fill="#fefce8" stroke="#ca8a04" stroke-width="1.4"/>
+  <text x="58" y="374" class="t">Data contracts (projects/&lt;id&gt;/) — validated by pipeline/schemas/*.schema.json</text>
+  <text x="58" y="398" class="s" font-family="Menlo, monospace">plan.json</text>
+  <text x="138" y="398" class="s">script beats, hooks, shot list</text>
+  <text x="360" y="398" class="s" font-family="Menlo, monospace">edl.json</text>
+  <text x="432" y="398" class="s">cuts (source time), captions, graphics, audio (output time)</text>
+  <text x="840" y="398" class="s" font-family="Menlo, monospace">carousel.json</text>
+  <text x="945" y="398" class="s">slides</text>
+  <path d="M200 320 V346" class="flow"/>
+  <path d="M540 320 V346" class="flow"/>
+  <path d="M880 320 V346" class="flow"/>
+
+  <!-- ============ ROW 4: pipeline ============ -->
+  <text x="40" y="446" class="h">DETERMINISTIC PIPELINE</text>
+  <text x="240" y="446" class="xs">pipeline/ · remotion/ · carousel/ — cached in work/, safe to re-run</text>
+
+  <rect x="40" y="456" width="1000" height="196" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+  <text x="56" y="478" class="xs" font-weight="700">EDIT BAY  ·  ./studio edit → preview → final</text>
+
+  <!-- row a -->
+  <g>
+    <rect x="56" y="490" width="148" height="52" rx="8" class="step"/><text x="130" y="512" text-anchor="middle" class="s" font-weight="700">ingest</text><text x="130" y="530" text-anchor="middle" class="xs">copy to raw/, probe</text>
+    <rect x="220" y="490" width="148" height="52" rx="8" class="step"/><text x="294" y="512" text-anchor="middle" class="s" font-weight="700">sync_audio</text><text x="294" y="530" text-anchor="middle" class="xs">mic ↔ phone offset</text>
+    <rect x="384" y="490" width="148" height="52" rx="8" class="step"/><text x="458" y="512" text-anchor="middle" class="s" font-weight="700">clean_audio</text><text x="458" y="530" text-anchor="middle" class="xs">denoise, loudness</text>
+    <rect x="548" y="490" width="148" height="52" rx="8" class="step"/><text x="622" y="512" text-anchor="middle" class="s" font-weight="700">transcribe</text><text x="622" y="530" text-anchor="middle" class="xs">via Transcriber ▸</text>
+    <rect x="712" y="490" width="148" height="52" rx="8" class="step"/><text x="786" y="512" text-anchor="middle" class="s" font-weight="700">silences · fillers</text><text x="786" y="530" text-anchor="middle" class="xs">dead air, um/uh, retakes</text>
+    <rect x="876" y="490" width="148" height="52" rx="8" class="step"/><text x="950" y="512" text-anchor="middle" class="s" font-weight="700">align_script</text><text x="950" y="530" text-anchor="middle" class="xs">best take per beat</text>
+    <path d="M204 516 H216" class="flow"/><path d="M368 516 H380" class="flow"/><path d="M532 516 H544" class="flow"/><path d="M696 516 H708" class="flow"/><path d="M860 516 H872" class="flow"/>
+  </g>
+  <path d="M950 542 V556 H130 V568" class="flow"/>
+  <!-- row b -->
+  <g>
+    <rect x="56" y="572" width="148" height="52" rx="8" class="step"/><text x="130" y="594" text-anchor="middle" class="s" font-weight="700">frames · face_track</text><text x="130" y="612" text-anchor="middle" class="xs">via FaceDetector ▸</text>
+    <rect x="220" y="572" width="148" height="52" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="1.2"/><text x="294" y="594" text-anchor="middle" class="s" font-weight="700">auto_edl</text><text x="294" y="612" text-anchor="middle" class="xs">draft edl.json → agents</text>
+    <rect x="384" y="572" width="148" height="52" rx="8" class="step"/><text x="458" y="594" text-anchor="middle" class="s" font-weight="700">rough_cut</text><text x="458" y="612" text-anchor="middle" class="xs">ffmpeg, frame-accurate</text>
+    <rect x="548" y="572" width="148" height="52" rx="8" class="step"/><text x="622" y="594" text-anchor="middle" class="s" font-weight="700">render</text><text x="622" y="612" text-anchor="middle" class="xs">Remotion + audio mix</text>
+    <rect x="712" y="572" width="148" height="52" rx="8" class="step"/><text x="786" y="594" text-anchor="middle" class="s" font-weight="700">qc_frames</text><text x="786" y="612" text-anchor="middle" class="xs">auto checks → critic</text>
+    <rect x="876" y="572" width="148" height="52" rx="8" class="step"/><text x="950" y="594" text-anchor="middle" class="s" font-weight="700">cover · export_nle</text><text x="950" y="612" text-anchor="middle" class="xs">cover.png, .fcpxml</text>
+    <path d="M204 598 H216" class="flow"/><path d="M368 598 H380" class="flow"/><path d="M532 598 H544" class="flow"/><path d="M696 598 H708" class="flow"/><path d="M860 598 H872" class="flow"/>
+  </g>
+  <text x="56" y="642" class="xs">preview = half-res render + QC first; critic sends fixes back as edl.json edits (max 2 loops); final = full-res.</text>
+  <path d="M720 414 V452" class="uses"/>
+  <text x="728" y="432" class="xs">agents edit edl.json between steps</text>
+
+  <rect x="40" y="664" width="1000" height="62" rx="12" fill="#fff7ed" stroke="#fdba74" stroke-width="1.2"/>
+  <text x="56" y="686" class="xs" font-weight="700">DESIGN DESK  ·  ./studio verify → ./studio carousel</text>
+  <rect x="56" y="694" width="200" height="26" rx="6" class="step"/><text x="156" y="712" text-anchor="middle" class="s">verify_links (live? maintained?)</text>
+  <rect x="276" y="694" width="400" height="26" rx="6" class="step"/><text x="476" y="712" text-anchor="middle" class="s">carousel/render — theme pack + HTML/CSS → headless Chrome</text>
+  <path d="M256 707 H272" class="flow"/>
+  <path d="M1040 400 H1054 V707 H1044" class="flow"/>
+
+  <!-- ============ ROW 5: outputs ============ -->
+  <rect x="40" y="748" width="1000" height="96" rx="12" fill="#0f172a"/>
+  <text x="58" y="774" font-size="15" font-weight="700" fill="#fff">projects/&lt;date&gt;_&lt;pillar&gt;-&lt;slug&gt;/</text>
+  <text x="58" y="798" font-size="12.5" fill="#cbd5e1" font-family="Menlo, monospace">raw/   your footage — never modified</text>
+  <text x="58" y="818" font-size="12.5" fill="#cbd5e1" font-family="Menlo, monospace">work/  intermediates: voice, transcript, qc/</text>
+  <text x="560" y="798" font-size="12.5" fill="#fde68a" font-family="Menlo, monospace">out/ final.mp4 (1080×1920, −14 LUFS)</text>
+  <text x="560" y="818" font-size="12.5" fill="#fde68a" font-family="Menlo, monospace">     cover.png · caption.txt · project.fcpxml</text>
+  <text x="560" y="836" font-size="12.5" fill="#fde68a" font-family="Menlo, monospace">     slides/*.png · carousel.pdf</text>
+  <path d="M540 652 V660" class="flow"/>
+  <path d="M540 726 V744" class="flow"/>
+  <path d="M40 796 H24 V120 H36" class="flow"/>
+  <text x="16" y="470" class="xs" transform="rotate(-90 16 470)">you review · post · /log stats</text>
+
+  <!-- ============ RIGHT COLUMN ============ -->
+  <text x="1072" y="100" class="h">KNOWLEDGE</text>
+  <rect x="1072" y="110" width="298" height="176" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.4"/>
+  <text x="1090" y="134" class="t">brain/ — expertise</text>
+  <text x="1090" y="154" class="xs">you control it; agents read it</text>
+  <text x="1090" y="176" class="s">brand-bible.md · brand.json</text>
+  <text x="1090" y="195" class="s">hooks-library · retention-playbook</text>
+  <text x="1090" y="214" class="s">pillars/ · series-bible · edit-styles</text>
+  <text x="1090" y="233" class="s">carousel-themes/ · glossary.txt</text>
+  <text x="1090" y="252" class="s">content-log.csv (post stats)</text>
+  <text x="1090" y="274" class="xs">changes only with your approval</text>
+
+  <rect x="1072" y="304" width="298" height="190" rx="12" fill="#fdf2f8" stroke="#db2777" stroke-width="1.4"/>
+  <text x="1090" y="328" class="t">memory/ — experience</text>
+  <text x="1090" y="350" class="s">working/&lt;id&gt;.md — live task:</text>
+  <text x="1090" y="368" class="xs">goal, decisions, feedback, progress</text>
+  <text x="1090" y="390" class="s">long-term/ — what was learned:</text>
+  <text x="1090" y="408" class="xs">index · preferences · lessons ·</text>
+  <text x="1090" y="424" class="xs">ideas-backlog · pillars · projects</text>
+  <text x="1090" y="448" class="xs">Load at task start → Consolidate at end</text>
+  <text x="1090" y="466" class="xs">(dedupe, seen: N counter)</text>
+  <text x="1090" y="484" class="xs">seen ≥ 3 → propose promotion to brain/</text>
+  <path d="M1330 304 V290" class="uses"/>
+
+  <text x="1072" y="530" class="h">PLUGGABLE PROVIDERS  (studio.json)</text>
+  <rect x="1072" y="540" width="298" height="112" rx="12" fill="#f1f5f9" stroke="#64748b" stroke-width="1.4"/>
+  <text x="1090" y="564" class="t">Transcriber</text>
+  <text x="1090" y="584" class="s">mlx-whisper → whisper-cpp →</text>
+  <text x="1090" y="602" class="s">sidecar (raw/transcript.srt) → none</text>
+  <text x="1090" y="626" class="t">FaceDetector</text>
+  <text x="1090" y="644" class="s">mediapipe → opencv (YuNet) → center</text>
+
+  <rect x="1072" y="668" width="298" height="176" rx="12" fill="#f1f5f9" stroke="#64748b" stroke-width="1.4"/>
+  <text x="1090" y="692" class="t">Tools underneath</text>
+  <text x="1090" y="714" class="s">ffmpeg — cut, denoise, loudness, scenes</text>
+  <text x="1090" y="734" class="s">Remotion (React) — captions, zooms,</text>
+  <text x="1090" y="752" class="s">   reframing, diagrams, badges</text>
+  <text x="1090" y="772" class="s">OpenTimelineIO — DaVinci Resolve export</text>
+  <text x="1090" y="792" class="s">Google Chrome (headless) — slides</text>
+  <text x="1090" y="812" class="s">numpy/scipy — mic sync</text>
+  <text x="1090" y="832" class="s">./studio doctor — what's installed</text>
+
+  <path d="M1040 120 H1068" class="uses"/>
+  <path d="M1040 146 H1060 V390 H1068" class="uses"/>
+  <path d="M1068 580 H1044" class="uses"/>
+  <path d="M1068 636 H1044" class="uses"/>
+
+  <!-- legend -->
+  <rect x="40" y="866" width="1330" height="120" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="58" y="890" class="h">HOW A REEL IS MADE</text>
+  <text x="58" y="912" class="s">1. /studio-plan → interview → you pick 1 of 3 hooks → plan.json + script.md (teleprompter + shot list).  2. Shoot on the phone with the separate mic (clap once).</text>
+  <text x="58" y="932" class="s">3. /studio-edit clip.mp4 mic.wav → pipeline prepares a draft edl.json → editor / motion / sound agents refine it → preview → critic → fixes → final render.</text>
+  <text x="58" y="952" class="s">4. You approve → post → /log the stats → strategist learns which hooks and angles work → memory → (with your OK) brain/.</text>
+  <rect x="1010" y="874" width="344" height="106" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.4"/>
+  <text x="1026" y="900" class="t">Web Studio  ·  ./studio web</text>
+  <text x="1026" y="920" class="s">browser editor on 127.0.0.1:4545 — live 9:16</text>
+  <text x="1026" y="938" class="s">preview, transcript cut/restore, timeline trims,</text>
+  <text x="1026" y="956" class="s">captions, graphics, audio, carousel slides.</text>
+  <text x="1026" y="972" class="xs">edits the same edl.json / carousel.json as the agents</text>
+  <line x1="58" y1="972" x2="92" y2="972" class="flow"/><text x="100" y="976" class="xs">data flow</text>
+  <line x1="180" y1="972" x2="214" y2="972" class="uses"/><text x="222" y="976" class="xs">reads / uses</text>
+</svg>

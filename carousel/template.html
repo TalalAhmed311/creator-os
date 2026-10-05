@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+{{FONTS}}
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: {{W}}px; height: {{H}}px; overflow: hidden; }
+  body {
+    {{BG}}
+    color: {{TEXT}};
+    font-family: '{{BODY_FONT}}', system-ui, sans-serif;
+    font-weight: {{BODY_WEIGHT}};
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2 { font-family: '{{TITLE_FONT}}', system-ui, sans-serif; font-weight: {{TITLE_WEIGHT}}; line-height: 1.05; }
+  .counter { position: absolute; top: 56px; right: 64px; font-size: 30px; color: {{MUTED}}; letter-spacing: 2px; }
+  .handle { position: absolute; bottom: 56px; left: 64px; font-size: 30px; color: {{MUTED}}; }
+
+  /* hook slide */
+  .hook { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 90px; }
+  .hook .kicker { font-size: 38px; color: {{ACCENT}}; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 28px; font-weight: 700; }
+  .hook h1 { font-size: {{TITLE_SIZE}}px; }
+  .hook .swipe { margin-top: 56px; font-size: 34px; color: {{MUTED}}; }
+
+  /* resource slide */
+  .num { position: absolute; top: 40px; left: 64px; font-family: '{{TITLE_FONT}}'; font-weight: {{TITLE_WEIGHT}}; font-size: 150px; color: {{ACCENT}}; opacity: .9; line-height: 1; }
+  /* card sizes to its content and sits centred between the big number and the footer */
+  .card { position: absolute; left: 64px; right: 64px; top: 50%; transform: translateY(-44%); max-height: 1000px; padding: 64px 60px;
+          display: flex; flex-direction: column; gap: 30px; background: {{CARD}}; border-radius: 36px; }
+  .card h2 { font-size: 76px; }
+  .card .value { font-size: 46px; line-height: 1.3; }
+  .card .who { font-size: 34px; color: {{MUTED}}; line-height: 1.35; }
+  .card .who b { color: {{ACCENT}}; font-weight: 700; }
+  .card .url { margin-top: 14px; font-size: 30px; color: {{ACCENT}}; word-break: break-all; opacity: .95; }
+  .card .shot { width: 100%; max-height: 300px; object-fit: contain; border-radius: 18px; }
+  .tag { align-self: flex-start; font-size: 26px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 20px;
+         border-radius: 999px; background: {{ACCENT}}; color: #0a0a0a; }
+
+  /* cta slide */
+  .cta { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 100px; }
+  .cta h1 { font-size: {{TITLE_SIZE}}px; }
+  .cta p { margin-top: 36px; font-size: 44px; color: {{ACCENT}}; }
+
+  /* card styles */
+  body.chalk .card { border: 3px dashed rgba(244,241,232,.45); }
+  body.outline .card { border: 3px solid {{ACCENT}}; box-shadow: 14px 14px 0 rgba(127,231,255,.25); }
+  body.terminal .card { border: 2px solid {{ACCENT}}; border-radius: 12px; }
+  body.terminal .card h2::before { content: "$ "; color: {{ACCENT}}; }
+  body.terminal .hook h1::after { content: "▋"; color: {{ACCENT}}; margin-left: 10px; }
+  body.soft .card { box-shadow: 0 30px 80px rgba(20,20,40,.12); }
+</style>
+</head>
+<body class="{{CARD_STYLE}} {{KIND}}">
+{{BODY}}
+</body>
+</html>

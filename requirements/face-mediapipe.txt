@@ -1,0 +1,2 @@
+# Optional feature pack: mediapipe face tracking (the OpenCV detector in core is the fallback)
+mediapipe

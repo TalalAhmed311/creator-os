@@ -1,0 +1,420 @@
+{
+  "project_id": "2026-09-26_bip-e2e-captions",
+  "edit_preset": "bip-raw",
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "sources": {
+    "cam": "raw/cam.mp4",
+    "mic": "raw/mic.wav",
+    "mic_offset_ms": 411.9
+  },
+  "segments": [
+    {
+      "src": "cam",
+      "in": 4.31,
+      "out": 6.783,
+      "beat": "hook",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 7.7,
+      "out": 9.991,
+      "beat": "context",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.1,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 11.624,
+      "out": 15.646,
+      "beat": "value",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.18,
+        "to": 1.2,
+        "ease": "snap"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 16.45,
+      "out": 19.988,
+      "beat": "payoff",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.18,
+        "to": 1.2,
+        "ease": "snap"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 21.29,
+      "out": 21.889,
+      "beat": "cta",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 22.06,
+      "out": 23.286,
+      "beat": "cta",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.18,
+        "to": 1.2,
+        "ease": "snap"
+      },
+      "overlay_broll": null
+    }
+  ],
+  "captions": {
+    "style": "bip-raw",
+    "enabled": true,
+    "size": 1.0,
+    "max_words": 3,
+    "words": [
+      {
+        "text": "This",
+        "start": 0.06,
+        "end": 0.282,
+        "src_start": 4.36,
+        "highlight": false
+      },
+      {
+        "text": "took",
+        "start": 0.302,
+        "end": 0.524,
+        "src_start": 4.602,
+        "highlight": false
+      },
+      {
+        "text": "me",
+        "start": 0.544,
+        "end": 0.677,
+        "src_start": 4.844,
+        "highlight": false
+      },
+      {
+        "text": "three",
+        "start": 0.689,
+        "end": 0.956,
+        "src_start": 4.989,
+        "highlight": false
+      },
+      {
+        "text": "hours",
+        "start": 0.979,
+        "end": 1.246,
+        "src_start": 5.279,
+        "highlight": false
+      },
+      {
+        "text": "instead",
+        "start": 1.269,
+        "end": 1.625,
+        "src_start": 5.569,
+        "highlight": false
+      },
+      {
+        "text": "of",
+        "start": 1.656,
+        "end": 1.79,
+        "src_start": 5.956,
+        "highlight": false
+      },
+      {
+        "text": "three",
+        "start": 1.801,
+        "end": 2.068,
+        "src_start": 6.101,
+        "highlight": false
+      },
+      {
+        "text": "weeks.",
+        "start": 2.091,
+        "end": 2.403,
+        "src_start": 6.391,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 2.517,
+        "end": 2.611,
+        "src_start": 7.75,
+        "highlight": false
+      },
+      {
+        "text": "rebuilt",
+        "start": 2.619,
+        "end": 2.994,
+        "src_start": 7.852,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 3.026,
+        "end": 3.214,
+        "src_start": 8.259,
+        "highlight": false
+      },
+      {
+        "text": "whole",
+        "start": 3.23,
+        "end": 3.511,
+        "src_start": 8.463,
+        "highlight": false
+      },
+      {
+        "text": "onboarding",
+        "start": 3.536,
+        "end": 4.051,
+        "src_start": 8.769,
+        "highlight": false
+      },
+      {
+        "text": "flow",
+        "start": 4.096,
+        "end": 4.33,
+        "src_start": 9.329,
+        "highlight": false
+      },
+      {
+        "text": "today.",
+        "start": 4.35,
+        "end": 4.678,
+        "src_start": 9.583,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 4.773,
+        "end": 4.957,
+        "src_start": 11.64,
+        "highlight": false
+      },
+      {
+        "text": "trick",
+        "start": 4.973,
+        "end": 5.249,
+        "src_start": 11.84,
+        "highlight": false
+      },
+      {
+        "text": "was",
+        "start": 5.273,
+        "end": 5.457,
+        "src_start": 12.14,
+        "highlight": false
+      },
+      {
+        "text": "letting",
+        "start": 5.473,
+        "end": 5.841,
+        "src_start": 12.34,
+        "highlight": false
+      },
+      {
+        "text": "Claude",
+        "start": 5.873,
+        "end": 6.195,
+        "src_start": 12.74,
+        "highlight": true
+      },
+      {
+        "text": "write",
+        "start": 6.223,
+        "end": 6.499,
+        "src_start": 13.09,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 6.523,
+        "end": 6.707,
+        "src_start": 13.39,
+        "highlight": false
+      },
+      {
+        "text": "boring",
+        "start": 6.723,
+        "end": 7.045,
+        "src_start": 13.59,
+        "highlight": false
+      },
+      {
+        "text": "parts",
+        "start": 7.073,
+        "end": 7.349,
+        "src_start": 13.94,
+        "highlight": false
+      },
+      {
+        "text": "while",
+        "start": 7.373,
+        "end": 7.649,
+        "src_start": 14.24,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 7.673,
+        "end": 7.765,
+        "src_start": 14.54,
+        "highlight": false
+      },
+      {
+        "text": "designed",
+        "start": 7.773,
+        "end": 8.187,
+        "src_start": 14.64,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 8.223,
+        "end": 8.407,
+        "src_start": 15.09,
+        "highlight": false
+      },
+      {
+        "text": "flow.",
+        "start": 8.423,
+        "end": 8.699,
+        "src_start": 15.29,
+        "highlight": false
+      },
+      {
+        "text": "Signups",
+        "start": 8.8,
+        "end": 9.426,
+        "src_start": 16.5,
+        "highlight": false
+      },
+      {
+        "text": "went",
+        "start": 9.481,
+        "end": 9.873,
+        "src_start": 17.181,
+        "highlight": false
+      },
+      {
+        "text": "from",
+        "start": 9.907,
+        "end": 10.298,
+        "src_start": 17.607,
+        "highlight": false
+      },
+      {
+        "text": "40%",
+        "start": 10.332,
+        "end": 10.645,
+        "src_start": 18.032,
+        "highlight": true
+      },
+      {
+        "text": "to",
+        "start": 10.673,
+        "end": 10.908,
+        "src_start": 18.373,
+        "highlight": false
+      },
+      {
+        "text": "70%",
+        "start": 10.928,
+        "end": 11.241,
+        "src_start": 18.628,
+        "highlight": true
+      },
+      {
+        "text": "completion.",
+        "start": 11.269,
+        "end": 12.208,
+        "src_start": 18.969,
+        "highlight": false
+      },
+      {
+        "text": "Follow.",
+        "start": 12.34,
+        "end": 12.809,
+        "src_start": 21.34,
+        "highlight": false
+      },
+      {
+        "text": "Day",
+        "start": 12.943,
+        "end": 13.192,
+        "src_start": 22.11,
+        "highlight": false
+      },
+      {
+        "text": "13",
+        "start": 13.214,
+        "end": 13.4,
+        "src_start": 22.381,
+        "highlight": true
+      },
+      {
+        "text": "tomorrow.",
+        "start": 13.417,
+        "end": 14.039,
+        "src_start": 22.584,
+        "highlight": false
+      }
+    ]
+  },
+  "graphics": [
+    {
+      "type": "hook_text",
+      "text": "3 hours, not 3 weeks",
+      "start": 0.0,
+      "end": 2.467,
+      "position": "top"
+    },
+    {
+      "type": "badge",
+      "text": "Day 12",
+      "start": 0.0,
+      "end": 2.5,
+      "position": "top_left"
+    },
+    {
+      "type": "diagram",
+      "spec": "idea -> Claude -> working flow",
+      "start": 4.767,
+      "end": 8.767,
+      "position": "middle"
+    }
+  ],
+  "audio": {
+    "music": null,
+    "sfx": [],
+    "loudness_lufs": -14
+  },
+  "notes": [
+    "auto: 24.5s source → 14.1s cut, 6 segments, 9 words removed"
+  ]
+}

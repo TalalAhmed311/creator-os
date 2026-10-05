@@ -1,0 +1,27 @@
+1
+00:00:01,230 --> 00:00:03,420
+Um, this took me three hours instead of
+
+2
+00:00:04,360 --> 00:00:06,730
+This took me three hours instead of three weeks.
+
+3
+00:00:07,750 --> 00:00:09,940
+I rebuilt the whole onboarding flow today.
+
+4
+00:00:11,440 --> 00:00:15,590
+Uh, the trick was letting Claude write the boring parts while I designed the flow.
+
+5
+00:00:16,500 --> 00:00:19,990
+Signups went from 40% to 70% completion.
+
+6
+00:00:21,340 --> 00:00:21,850
+Follow.
+
+7
+00:00:22,110 --> 00:00:23,260
+Day 13 tomorrow.

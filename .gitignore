@@ -1,0 +1,28 @@
+# environments
+.venv/
+.wheels/
+__pycache__/
+*.pyc
+.pytest_cache/
+remotion/node_modules/
+remotion/out/
+
+# media & heavy outputs (projects keep their JSON contracts, scripts and reports)
+projects/*/raw/
+projects/*/work/
+projects/*/out/
+assets/models/
+assets/music/*
+assets/sfx/*
+assets/broll/*
+videos/*
+references/*/*
+!references/*/analysis.md
+!references/*/info.json
+!assets/**/.gitkeep
+tests/media/*.mp4
+tests/media/*.aiff
+
+.DS_Store
+inspiration/*
+!inspiration/.gitkeep

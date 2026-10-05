@@ -1,0 +1,17 @@
+{
+  "name": "trio-stack",
+  "description": "One wide image on top, two below, you in a rounded card across the middle seam. Good for 'X vs Y' or before/after.",
+  "background": "#0B0B0F",
+  "gap": 10,
+  "slots": [
+    {"x": 0.0, "y": 0.0, "w": 1.0, "h": 0.44},
+    {"x": 0.0, "y": 0.56, "w": 0.5, "h": 0.44},
+    {"x": 0.5, "y": 0.56, "w": 0.5, "h": 0.44}
+  ],
+  "presenter": {"x": 0.2, "y": 0.33, "w": 0.6, "h": 0.34, "radius": 32, "border": 6, "border_color": "#FFFFFF", "shadow": true, "above_tiles": true},
+  "tiles": {"radius": 0, "border": 0, "border_color": "#000000", "shadow": false, "motion": "ken_burns", "ken_burns": 1.06,
+            "enter": "slide", "stagger": 0.09, "saturate": 1.1, "contrast": 1.05, "brightness": 0.9, "dim": 0.12, "scrim": 0.7},
+  "title": {"top": 0.185, "size": 64, "font": "heavy", "weight": 900, "color": "#FFFFFF", "stroke": 8, "upper": true},
+  "captions_top": 0.72,
+  "morph": 0.4
+}

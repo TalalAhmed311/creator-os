@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "edl.json — edit decision list. segments use SOURCE time; captions/graphics/sfx use OUTPUT time.",
+  "type": "object",
+  "required": ["project_id", "output", "sources", "segments", "captions", "graphics", "audio"],
+  "additionalProperties": false,
+  "properties": {
+    "project_id": { "type": "string" },
+    "edit_preset": { "enum": ["bip-raw", "ai-explained", "talking-head-basic"] },
+    "output": {
+      "type": "object",
+      "required": ["width", "height", "fps"],
+      "additionalProperties": false,
+      "properties": {
+        "width": { "type": "integer", "minimum": 16 },
+        "height": { "type": "integer", "minimum": 16 },
+        "fps": { "type": "number", "minimum": 1, "maximum": 120 }
+      }
+    },
+    "sources": {
+      "type": "object",
+      "required": ["cam"],
+      "additionalProperties": false,
+      "properties": {
+        "cam": { "type": "string" },
+        "mic": { "type": ["string", "null"] },
+        "mic_offset_ms": { "type": ["number", "null"] }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["src", "in", "out"],
+        "additionalProperties": false,
+        "properties": {
+          "src": { "type": "string" },
+          "in": { "type": "number", "minimum": 0 },
+          "out": { "type": "number", "minimum": 0 },
+          "beat": { "type": ["string", "null"] },
+          "reframe": { "enum": ["face_track", "center", "none"] },
+          "zoom": {
+            "type": ["object", "null"],
+            "required": ["from", "to"],
+            "additionalProperties": false,
+            "properties": {
+              "from": { "type": "number", "minimum": 0.5, "maximum": 3 },
+              "to": { "type": "number", "minimum": 0.5, "maximum": 3 },
+              "ease": { "enum": ["linear", "easeIn", "easeOut", "easeInOut", "snap"] }
+            }
+          },
+          "overlay_broll": {
+            "type": ["object", "null"],
+            "required": ["file"],
+            "additionalProperties": false,
+            "properties": {
+              "file": { "type": "string" },
+              "in": { "type": "number", "minimum": 0 },
+              "mode": { "enum": ["full", "split_top", "pip"] }
+            }
+          },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "captions": {
+      "type": "object",
+      "required": ["style", "words"],
+      "additionalProperties": false,
+      "properties": {
+        "style": { "enum": ["bip-raw", "ai-explained", "talking-head-basic"] },
+        "enabled": { "type": "boolean" },
+        "size": { "type": "number", "minimum": 0.4, "maximum": 2 },
+        "max_words": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "words": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["text", "start", "end"],
+            "additionalProperties": false,
+            "properties": {
+              "text": { "type": "string" },
+              "start": { "type": "number", "minimum": 0 },
+              "end": { "type": "number", "minimum": 0 },
+              "highlight": { "type": "boolean" },
+              "src_start": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "graphics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "start", "end"],
+        "additionalProperties": false,
+        "properties": {
+          "type": { "enum": ["hook_text", "badge", "callout", "diagram", "series_tag", "intro_sting", "lower_third", "emoji_pop"] },
+          "text": { "type": "string" },
+          "spec": { "type": "string" },
+          "start": { "type": "number", "minimum": 0 },
+          "end": { "type": "number", "minimum": 0 },
+          "position": { "enum": ["top", "middle", "bottom", "top_left", "top_right"] }
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "required": ["loudness_lufs"],
+      "additionalProperties": false,
+      "properties": {
+        "music": {
+          "type": ["object", "null"],
+          "required": ["file"],
+          "additionalProperties": false,
+          "properties": {
+            "file": { "type": "string" },
+            "gain_db": { "type": "number", "maximum": 0 },
+            "duck": { "type": "boolean" },
+            "start_at": { "type": "number", "minimum": 0 }
+          }
+        },
+        "sfx": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["file", "at"],
+            "additionalProperties": false,
+            "properties": {
+              "file": { "type": "string" },
+              "at": { "type": "number", "minimum": 0 },
+              "gain_db": { "type": "number" }
+            }
+          }
+        },
+        "loudness_lufs": { "type": "number", "minimum": -30, "maximum": -8 }
+      }
+    },
+    "layout": {
+      "type": ["object", "null"],
+      "description": "Collage layout (theme pack in brain/video-themes/). blocks use OUTPUT time.",
+      "required": ["theme", "blocks"],
+      "additionalProperties": false,
+      "properties": {
+        "theme": { "type": "string" },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["start", "end", "tiles"],
+            "additionalProperties": false,
+            "properties": {
+              "start": { "type": "number", "minimum": 0 },
+              "end": { "type": "number", "minimum": 0 },
+              "tiles": {
+                "type": "array",
+                "maxItems": 8,
+                "items": {
+                  "oneOf": [
+                    { "type": "string" },
+                    { "type": "null" },
+                    {
+                      "type": "object",
+                      "required": ["file"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "file": { "type": "string" },
+                        "in": { "type": "number", "minimum": 0 },
+                        "focus_x": { "type": "number", "minimum": 0, "maximum": 1 },
+                        "focus_y": { "type": "number", "minimum": 0, "maximum": 1 }
+                      }
+                    }
+                  ]
+                }
+              },
+              "note": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}

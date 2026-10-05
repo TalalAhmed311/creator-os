@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "carousel.json — content for a resources carousel",
+  "type": "object",
+  "required": ["project_id", "theme", "size", "slides"],
+  "additionalProperties": false,
+  "properties": {
+    "project_id": { "type": "string" },
+    "theme": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "size": { "enum": ["1080x1350", "1080x1080"] },
+    "handle": { "type": "string" },
+    "background": { "type": ["string", "null"], "description": "Path to a background image (relative to project or studio). Null = theme default." },
+    "slides": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["kind"],
+        "additionalProperties": false,
+        "properties": {
+          "kind": { "enum": ["hook", "resource", "cta"] },
+          "title": { "type": "string" },
+          "subtitle": { "type": "string" },
+          "name": { "type": "string" },
+          "url": { "type": "string" },
+          "value": { "type": "string", "description": "One-line reason it's worth it" },
+          "for_who": { "type": "string" },
+          "tag": { "type": "string", "description": "e.g. Free / Paper / Course / Repo" },
+          "image": { "type": ["string", "null"] },
+          "verified": { "type": "object" }
+        }
+      }
+    },
+    "caption_draft": { "type": "string" },
+    "hashtags": { "type": "array", "items": { "type": "string" } }
+  }
+}

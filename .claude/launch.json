@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web-studio",
+      "runtimeExecutable": "/Users/talalahmed/Documents/build-in-public/personal-studio/.venv/bin/python",
+      "runtimeArgs": ["/Users/talalahmed/Documents/build-in-public/personal-studio/webstudio/server.py", "--no-open"],
+      "port": 4545
+    }
+  ]
+}

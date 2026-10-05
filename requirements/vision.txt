@@ -1,0 +1,3 @@
+# Optional feature pack: OpenCV face tracking (9:16 crop follows the face) + smarter cover-frame picking.
+# Without it the studio centre-crops and picks the cover frame by position.
+opencv-python-headless

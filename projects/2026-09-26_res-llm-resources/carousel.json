@@ -1,0 +1,61 @@
+{
+  "project_id": "2026-09-26_res-llm-resources",
+  "theme": "math-wall",
+  "size": "1080x1350",
+  "handle": "@yourhandle",
+  "background": null,
+  "slides": [
+    {
+      "kind": "hook",
+      "title": "7 free resources to actually understand LLMs",
+      "subtitle": "for developers"
+    },
+    {
+      "kind": "resource",
+      "name": "Let's build GPT",
+      "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+      "value": "Build a tiny GPT from scratch in two hours.",
+      "for_who": "Python devs who learn by coding",
+      "tag": "Free · Video",
+      "verified": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+        "checked": "2026-09-26"
+      }
+    },
+    {
+      "kind": "resource",
+      "name": "nanoGPT",
+      "url": "https://github.com/karpathy/nanoGPT",
+      "value": "The simplest real GPT training code you can read in an evening.",
+      "for_who": "Anyone who wants to see the real thing",
+      "tag": "Repo",
+      "verified": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://github.com/karpathy/nanoGPT",
+        "checked": "2026-09-26",
+        "repo": {
+          "stars": 63385,
+          "pushed_at": "2025-11-12",
+          "archived": false,
+          "months_since_push": 10.4,
+          "maintained": true,
+          "description": "The simplest, fastest repository for training/finetuning medium-sized GPTs."
+        }
+      }
+    },
+    {
+      "kind": "cta",
+      "title": "Save this for later",
+      "subtitle": "Follow for more AI, explained simply"
+    }
+  ],
+  "caption_draft": "7 free resources that finally made LLMs click for me.",
+  "hashtags": [
+    "ai",
+    "llm",
+    "learnai"
+  ]
+}

@@ -1,0 +1,9 @@
+# Optional feature pack: local transcription with mlx-whisper (Apple Silicon).
+# mlx-whisper itself is installed with --no-deps (skips torch, only needed for model conversion):
+#   uv pip install -r requirements/transcribe-mlx.txt && uv pip install --no-deps mlx-whisper
+mlx
+numba
+tiktoken
+huggingface_hub
+tqdm
+more-itertools

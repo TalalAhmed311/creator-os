@@ -1,0 +1,147 @@
+{
+  "project_id": "2026-09-26_bip-e2e-silence",
+  "edit_preset": "bip-raw",
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "sources": {
+    "cam": "raw/cam.mp4",
+    "mic": "raw/mic.wav",
+    "mic_offset_ms": 411.9
+  },
+  "segments": [
+    {
+      "src": "cam",
+      "in": 1.178,
+      "out": 3.497,
+      "beat": null,
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 4.313,
+      "out": 6.806,
+      "beat": null,
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.1,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 7.696,
+      "out": 10.016,
+      "beat": null,
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 11.39,
+      "out": 15.665,
+      "beat": null,
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.1,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 16.452,
+      "out": 20.068,
+      "beat": null,
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 21.291,
+      "out": 21.932,
+      "beat": null,
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.1,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 22.057,
+      "out": 23.34,
+      "beat": null,
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    }
+  ],
+  "captions": {
+    "style": "bip-raw",
+    "enabled": false,
+    "size": 1.0,
+    "max_words": 3,
+    "words": []
+  },
+  "graphics": [
+    {
+      "type": "hook_text",
+      "text": "3 hours, not 3 weeks",
+      "start": 0,
+      "end": 2.8,
+      "position": "top"
+    },
+    {
+      "type": "badge",
+      "text": "Day 12",
+      "start": 0,
+      "end": 2.5,
+      "position": "top_left"
+    },
+    {
+      "type": "diagram",
+      "spec": "idea -> Claude -> working flow",
+      "start": 6,
+      "end": 10,
+      "position": "middle"
+    }
+  ],
+  "audio": {
+    "music": null,
+    "sfx": [],
+    "loudness_lufs": -14
+  },
+  "notes": [
+    "auto: 24.5s source \u2192 16.9s cut, 7 segments, 0 words removed",
+    "NO TRANSCRIPT (backend: none) \u2014 cut by silence only, captions off. Plug in a transcriber (python -m pipeline.deps) or drop raw/transcript.srt, then re-run.",
+    "NO HOOK TEXT \u2014 editor should add a hook_text graphic (\u22647 words) at 0s"
+  ]
+}

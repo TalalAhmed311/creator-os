@@ -1,0 +1,41 @@
+{
+  "project_id": "2026-09-26_res-resources",
+  "theme": "math-wall",
+  "size": "1080x1350",
+  "handle": "@yourhandle",
+  "background": null,
+  "slides": [
+    {
+      "kind": "hook",
+      "title": "7 free resources to actually understand LLMs",
+      "subtitle": "for developers"
+    },
+    {
+      "kind": "resource",
+      "name": "Let's build GPT",
+      "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+      "value": "Build a tiny GPT from scratch in two hours.",
+      "for_who": "Python devs who learn by coding",
+      "tag": "Free · Video"
+    },
+    {
+      "kind": "resource",
+      "name": "nanoGPT",
+      "url": "https://github.com/karpathy/nanoGPT",
+      "value": "The simplest real GPT training code you can read in an evening.",
+      "for_who": "Anyone who wants to see the real thing",
+      "tag": "Repo"
+    },
+    {
+      "kind": "cta",
+      "title": "Save this for later",
+      "subtitle": "Follow for more AI, explained simply"
+    }
+  ],
+  "caption_draft": "7 free resources that finally made LLMs click for me.",
+  "hashtags": [
+    "ai",
+    "llm",
+    "learnai"
+  ]
+}

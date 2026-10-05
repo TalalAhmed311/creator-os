@@ -1,0 +1,1393 @@
+{
+  "project_id": "2026-09-30_bip-day-1-laid-off-building",
+  "edit_preset": "bip-raw",
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "sources": {
+    "cam": "raw/cam.mov",
+    "mic": null,
+    "mic_offset_ms": null
+  },
+  "segments": [
+    {
+      "src": "cam",
+      "in": 0.0,
+      "out": 0.92,
+      "beat": "hook",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 1.53,
+      "out": 3.5,
+      "beat": "hook",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.1,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 3.73,
+      "out": 5.92,
+      "beat": "context",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 6.13,
+      "out": 9.14,
+      "beat": "context",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.1,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 9.27,
+      "out": 10.86,
+      "beat": "context",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 10.97,
+      "out": 14.42,
+      "beat": "context",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.1,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 15.33,
+      "out": 20.44,
+      "beat": "context",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 20.65,
+      "out": 23.76,
+      "beat": "value-1",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.18,
+        "to": 1.2,
+        "ease": "snap"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 24.25,
+      "out": 24.6,
+      "beat": "value-1",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.02,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 24.83,
+      "out": 36.78,
+      "beat": "value-1",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.15,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 36.78,
+      "out": 41.42,
+      "beat": "value-2",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 41.42,
+      "out": 68.54,
+      "beat": "value-3",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.15,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 68.54,
+      "out": 75.12,
+      "beat": "payoff",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 75.43,
+      "out": 77.38,
+      "beat": "cta",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.08,
+        "to": 1.1,
+        "ease": "linear"
+      },
+      "overlay_broll": null
+    }
+  ],
+  "captions": {
+    "style": "bip-raw",
+    "enabled": true,
+    "size": 1.0,
+    "max_words": 3,
+    "words": [
+      {
+        "text": "Yeah,",
+        "start": 0.0,
+        "end": 0.84,
+        "src_start": 0.0,
+        "highlight": false
+      },
+      {
+        "text": "so",
+        "start": 0.98,
+        "end": 1.12,
+        "src_start": 1.58,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 1.12,
+        "end": 1.68,
+        "src_start": 1.72,
+        "highlight": false
+      },
+      {
+        "text": "got",
+        "start": 1.68,
+        "end": 1.94,
+        "src_start": 2.28,
+        "highlight": false
+      },
+      {
+        "text": "laid",
+        "start": 1.94,
+        "end": 2.16,
+        "src_start": 2.54,
+        "highlight": false
+      },
+      {
+        "text": "off",
+        "start": 2.16,
+        "end": 2.44,
+        "src_start": 2.76,
+        "highlight": false
+      },
+      {
+        "text": "too.",
+        "start": 2.44,
+        "end": 2.82,
+        "src_start": 3.04,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 2.947,
+        "end": 3.407,
+        "src_start": 3.78,
+        "highlight": false
+      },
+      {
+        "text": "am",
+        "start": 3.407,
+        "end": 3.527,
+        "src_start": 4.24,
+        "highlight": false
+      },
+      {
+        "text": "Talal.",
+        "start": 3.527,
+        "end": 3.887,
+        "src_start": 4.36,
+        "highlight": false
+      },
+      {
+        "text": "I'm",
+        "start": 4.047,
+        "end": 4.327,
+        "src_start": 4.88,
+        "highlight": false
+      },
+      {
+        "text": "an",
+        "start": 4.327,
+        "end": 4.447,
+        "src_start": 5.16,
+        "highlight": false
+      },
+      {
+        "text": "AI",
+        "start": 4.447,
+        "end": 4.647,
+        "src_start": 5.28,
+        "highlight": false
+      },
+      {
+        "text": "engineer.",
+        "start": 4.647,
+        "end": 5.007,
+        "src_start": 5.48,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 5.147,
+        "end": 5.747,
+        "src_start": 6.18,
+        "highlight": false
+      },
+      {
+        "text": "was",
+        "start": 5.747,
+        "end": 5.947,
+        "src_start": 6.78,
+        "highlight": false
+      },
+      {
+        "text": "working",
+        "start": 5.947,
+        "end": 6.307,
+        "src_start": 6.98,
+        "highlight": false
+      },
+      {
+        "text": "remotely",
+        "start": 6.307,
+        "end": 6.727,
+        "src_start": 7.34,
+        "highlight": false
+      },
+      {
+        "text": "from",
+        "start": 6.727,
+        "end": 6.967,
+        "src_start": 7.76,
+        "highlight": false
+      },
+      {
+        "text": "Pakistan,",
+        "start": 6.967,
+        "end": 7.487,
+        "src_start": 8.0,
+        "highlight": false
+      },
+      {
+        "text": "Lahore,",
+        "start": 7.627,
+        "end": 8.027,
+        "src_start": 8.66,
+        "highlight": false
+      },
+      {
+        "text": "for",
+        "start": 8.153,
+        "end": 8.593,
+        "src_start": 9.32,
+        "highlight": false
+      },
+      {
+        "text": "a",
+        "start": 8.593,
+        "end": 8.713,
+        "src_start": 9.76,
+        "highlight": false
+      },
+      {
+        "text": "company",
+        "start": 8.713,
+        "end": 9.053,
+        "src_start": 9.88,
+        "highlight": false
+      },
+      {
+        "text": "in",
+        "start": 9.053,
+        "end": 9.293,
+        "src_start": 10.22,
+        "highlight": false
+      },
+      {
+        "text": "Canada,",
+        "start": 9.293,
+        "end": 9.613,
+        "src_start": 10.46,
+        "highlight": false
+      },
+      {
+        "text": "while",
+        "start": 9.753,
+        "end": 10.353,
+        "src_start": 11.02,
+        "highlight": false
+      },
+      {
+        "text": "doing",
+        "start": 10.353,
+        "end": 10.553,
+        "src_start": 11.62,
+        "highlight": false
+      },
+      {
+        "text": "my",
+        "start": 10.553,
+        "end": 10.753,
+        "src_start": 11.82,
+        "highlight": false
+      },
+      {
+        "text": "MS",
+        "start": 10.753,
+        "end": 11.093,
+        "src_start": 12.02,
+        "highlight": false
+      },
+      {
+        "text": "in",
+        "start": 11.093,
+        "end": 11.333,
+        "src_start": 12.36,
+        "highlight": false
+      },
+      {
+        "text": "AI",
+        "start": 11.333,
+        "end": 11.693,
+        "src_start": 12.6,
+        "highlight": false
+      },
+      {
+        "text": "at",
+        "start": 11.693,
+        "end": 12.213,
+        "src_start": 12.96,
+        "highlight": false
+      },
+      {
+        "text": "LAMS",
+        "start": 12.213,
+        "end": 12.553,
+        "src_start": 13.48,
+        "highlight": false
+      },
+      {
+        "text": "in",
+        "start": 12.553,
+        "end": 12.753,
+        "src_start": 13.82,
+        "highlight": false
+      },
+      {
+        "text": "Lahore.",
+        "start": 12.753,
+        "end": 13.073,
+        "src_start": 14.02,
+        "highlight": false
+      },
+      {
+        "text": "then",
+        "start": 13.213,
+        "end": 13.393,
+        "src_start": 15.38,
+        "highlight": false
+      },
+      {
+        "text": "one",
+        "start": 13.393,
+        "end": 13.573,
+        "src_start": 15.56,
+        "highlight": false
+      },
+      {
+        "text": "day",
+        "start": 13.573,
+        "end": 13.833,
+        "src_start": 15.74,
+        "highlight": false
+      },
+      {
+        "text": "it",
+        "start": 13.833,
+        "end": 14.233,
+        "src_start": 16.0,
+        "highlight": false
+      },
+      {
+        "text": "was",
+        "start": 14.233,
+        "end": 14.513,
+        "src_start": 16.4,
+        "highlight": false
+      },
+      {
+        "text": "just",
+        "start": 14.513,
+        "end": 14.753,
+        "src_start": 16.68,
+        "highlight": false
+      },
+      {
+        "text": "over",
+        "start": 14.753,
+        "end": 15.053,
+        "src_start": 16.92,
+        "highlight": false
+      },
+      {
+        "text": "and",
+        "start": 15.053,
+        "end": 15.593,
+        "src_start": 17.22,
+        "highlight": false
+      },
+      {
+        "text": "honestly",
+        "start": 15.593,
+        "end": 15.953,
+        "src_start": 17.76,
+        "highlight": false
+      },
+      {
+        "text": "I'm",
+        "start": 15.953,
+        "end": 16.153,
+        "src_start": 18.12,
+        "highlight": false
+      },
+      {
+        "text": "figuring",
+        "start": 16.153,
+        "end": 16.433,
+        "src_start": 18.32,
+        "highlight": false
+      },
+      {
+        "text": "out",
+        "start": 16.433,
+        "end": 16.753,
+        "src_start": 18.6,
+        "highlight": false
+      },
+      {
+        "text": "what",
+        "start": 16.753,
+        "end": 17.113,
+        "src_start": 18.92,
+        "highlight": false
+      },
+      {
+        "text": "comes",
+        "start": 17.113,
+        "end": 17.833,
+        "src_start": 19.28,
+        "highlight": false
+      },
+      {
+        "text": "next.",
+        "start": 17.833,
+        "end": 18.193,
+        "src_start": 20.0,
+        "highlight": false
+      },
+      {
+        "text": "For",
+        "start": 18.3,
+        "end": 18.84,
+        "src_start": 20.7,
+        "highlight": false
+      },
+      {
+        "text": "years",
+        "start": 18.84,
+        "end": 19.2,
+        "src_start": 21.24,
+        "highlight": false
+      },
+      {
+        "text": "I've",
+        "start": 19.2,
+        "end": 19.74,
+        "src_start": 21.6,
+        "highlight": false
+      },
+      {
+        "text": "built",
+        "start": 19.74,
+        "end": 19.86,
+        "src_start": 22.14,
+        "highlight": false
+      },
+      {
+        "text": "AI",
+        "start": 19.86,
+        "end": 20.04,
+        "src_start": 22.26,
+        "highlight": false
+      },
+      {
+        "text": "systems,",
+        "start": 20.04,
+        "end": 20.48,
+        "src_start": 22.44,
+        "highlight": false
+      },
+      {
+        "text": "LLMs,",
+        "start": 20.64,
+        "end": 21.28,
+        "src_start": 23.04,
+        "highlight": true
+      },
+      {
+        "text": "PAC,",
+        "start": 21.4,
+        "end": 21.62,
+        "src_start": 24.3,
+        "highlight": false
+      },
+      {
+        "text": "agents,",
+        "start": 21.747,
+        "end": 22.307,
+        "src_start": 24.88,
+        "highlight": false
+      },
+      {
+        "text": "turning",
+        "start": 22.487,
+        "end": 22.647,
+        "src_start": 25.62,
+        "highlight": false
+      },
+      {
+        "text": "ideas",
+        "start": 22.647,
+        "end": 23.027,
+        "src_start": 25.78,
+        "highlight": false
+      },
+      {
+        "text": "into",
+        "start": 23.027,
+        "end": 23.307,
+        "src_start": 26.16,
+        "highlight": false
+      },
+      {
+        "text": "their",
+        "start": 23.307,
+        "end": 23.547,
+        "src_start": 26.44,
+        "highlight": false
+      },
+      {
+        "text": "products.",
+        "start": 23.547,
+        "end": 23.967,
+        "src_start": 26.68,
+        "highlight": false
+      },
+      {
+        "text": "but",
+        "start": 23.967,
+        "end": 24.967,
+        "src_start": 27.1,
+        "highlight": false
+      },
+      {
+        "text": "they",
+        "start": 24.967,
+        "end": 25.167,
+        "src_start": 28.1,
+        "highlight": false
+      },
+      {
+        "text": "were",
+        "start": 25.167,
+        "end": 25.327,
+        "src_start": 28.3,
+        "highlight": false
+      },
+      {
+        "text": "always",
+        "start": 25.327,
+        "end": 25.887,
+        "src_start": 28.46,
+        "highlight": false
+      },
+      {
+        "text": "someone",
+        "start": 25.887,
+        "end": 26.707,
+        "src_start": 29.02,
+        "highlight": false
+      },
+      {
+        "text": "else's",
+        "start": 26.707,
+        "end": 27.387,
+        "src_start": 29.84,
+        "highlight": false
+      },
+      {
+        "text": "ideas",
+        "start": 27.387,
+        "end": 27.747,
+        "src_start": 30.52,
+        "highlight": false
+      },
+      {
+        "text": "so",
+        "start": 27.747,
+        "end": 28.447,
+        "src_start": 30.88,
+        "highlight": false
+      },
+      {
+        "text": "while",
+        "start": 28.447,
+        "end": 29.507,
+        "src_start": 31.58,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 29.507,
+        "end": 29.727,
+        "src_start": 32.64,
+        "highlight": false
+      },
+      {
+        "text": "had",
+        "start": 29.727,
+        "end": 30.027,
+        "src_start": 32.86,
+        "highlight": false
+      },
+      {
+        "text": "ridiculous",
+        "start": 30.027,
+        "end": 30.967,
+        "src_start": 33.16,
+        "highlight": false
+      },
+      {
+        "text": "numbers",
+        "start": 30.967,
+        "end": 31.387,
+        "src_start": 34.1,
+        "highlight": false
+      },
+      {
+        "text": "of",
+        "start": 31.387,
+        "end": 31.647,
+        "src_start": 34.52,
+        "highlight": false
+      },
+      {
+        "text": "my",
+        "start": 31.647,
+        "end": 32.067,
+        "src_start": 34.78,
+        "highlight": false
+      },
+      {
+        "text": "own",
+        "start": 32.067,
+        "end": 32.287,
+        "src_start": 35.2,
+        "highlight": false
+      },
+      {
+        "text": "sitting",
+        "start": 32.287,
+        "end": 32.967,
+        "src_start": 35.42,
+        "highlight": false
+      },
+      {
+        "text": "in",
+        "start": 32.967,
+        "end": 33.187,
+        "src_start": 36.1,
+        "highlight": false
+      },
+      {
+        "text": "my",
+        "start": 33.187,
+        "end": 33.327,
+        "src_start": 36.32,
+        "highlight": false
+      },
+      {
+        "text": "head",
+        "start": 33.327,
+        "end": 33.633,
+        "src_start": 36.46,
+        "highlight": false
+      },
+      {
+        "text": "so",
+        "start": 33.647,
+        "end": 34.807,
+        "src_start": 36.78,
+        "highlight": false
+      },
+      {
+        "text": "instead",
+        "start": 34.807,
+        "end": 35.067,
+        "src_start": 37.94,
+        "highlight": false
+      },
+      {
+        "text": "of",
+        "start": 35.067,
+        "end": 35.247,
+        "src_start": 38.2,
+        "highlight": false
+      },
+      {
+        "text": "waiting",
+        "start": 35.247,
+        "end": 35.587,
+        "src_start": 38.38,
+        "highlight": false
+      },
+      {
+        "text": "for",
+        "start": 35.587,
+        "end": 35.867,
+        "src_start": 38.72,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 35.867,
+        "end": 35.987,
+        "src_start": 39.0,
+        "highlight": false
+      },
+      {
+        "text": "next",
+        "start": 35.987,
+        "end": 36.207,
+        "src_start": 39.12,
+        "highlight": false
+      },
+      {
+        "text": "opportunity",
+        "start": 36.207,
+        "end": 36.807,
+        "src_start": 39.34,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 36.807,
+        "end": 37.567,
+        "src_start": 39.94,
+        "highlight": false
+      },
+      {
+        "text": "am",
+        "start": 37.567,
+        "end": 37.707,
+        "src_start": 40.7,
+        "highlight": false
+      },
+      {
+        "text": "going",
+        "start": 37.707,
+        "end": 37.927,
+        "src_start": 40.84,
+        "highlight": false
+      },
+      {
+        "text": "to",
+        "start": 37.927,
+        "end": 38.067,
+        "src_start": 41.06,
+        "highlight": false
+      },
+      {
+        "text": "buy",
+        "start": 38.067,
+        "end": 38.287,
+        "src_start": 41.2,
+        "highlight": false
+      },
+      {
+        "text": "one",
+        "start": 38.3,
+        "end": 41.227,
+        "src_start": 41.42,
+        "highlight": false
+      },
+      {
+        "text": "product",
+        "start": 41.227,
+        "end": 42.067,
+        "src_start": 44.36,
+        "highlight": false
+      },
+      {
+        "text": "from",
+        "start": 42.067,
+        "end": 43.067,
+        "src_start": 45.2,
+        "highlight": false
+      },
+      {
+        "text": "scratch",
+        "start": 43.067,
+        "end": 43.487,
+        "src_start": 46.2,
+        "highlight": false
+      },
+      {
+        "text": "then",
+        "start": 43.487,
+        "end": 44.447,
+        "src_start": 46.62,
+        "highlight": false
+      },
+      {
+        "text": "experiment",
+        "start": 44.447,
+        "end": 45.007,
+        "src_start": 47.58,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 45.007,
+        "end": 45.407,
+        "src_start": 48.14,
+        "highlight": false
+      },
+      {
+        "text": "failures",
+        "start": 45.407,
+        "end": 45.887,
+        "src_start": 48.54,
+        "highlight": false
+      },
+      {
+        "text": "hopefully",
+        "start": 45.887,
+        "end": 46.427,
+        "src_start": 49.02,
+        "highlight": false
+      },
+      {
+        "text": "some",
+        "start": 46.427,
+        "end": 46.707,
+        "src_start": 49.56,
+        "highlight": false
+      },
+      {
+        "text": "launches",
+        "start": 46.707,
+        "end": 47.147,
+        "src_start": 49.84,
+        "highlight": false
+      },
+      {
+        "text": "to",
+        "start": 47.147,
+        "end": 48.267,
+        "src_start": 50.28,
+        "highlight": false
+      },
+      {
+        "text": "a",
+        "start": 48.267,
+        "end": 48.667,
+        "src_start": 51.4,
+        "highlight": false
+      },
+      {
+        "text": "second",
+        "start": 48.667,
+        "end": 50.967,
+        "src_start": 51.8,
+        "highlight": false
+      },
+      {
+        "text": "what",
+        "start": 50.967,
+        "end": 55.627,
+        "src_start": 54.1,
+        "highlight": false
+      },
+      {
+        "text": "I've",
+        "start": 55.627,
+        "end": 55.907,
+        "src_start": 58.76,
+        "highlight": false
+      },
+      {
+        "text": "learned",
+        "start": 55.907,
+        "end": 56.187,
+        "src_start": 59.04,
+        "highlight": false
+      },
+      {
+        "text": "and",
+        "start": 56.187,
+        "end": 56.487,
+        "src_start": 59.32,
+        "highlight": false
+      },
+      {
+        "text": "what",
+        "start": 56.487,
+        "end": 56.727,
+        "src_start": 59.62,
+        "highlight": false
+      },
+      {
+        "text": "I'm",
+        "start": 56.727,
+        "end": 57.027,
+        "src_start": 59.86,
+        "highlight": false
+      },
+      {
+        "text": "learning",
+        "start": 57.027,
+        "end": 57.407,
+        "src_start": 60.16,
+        "highlight": false
+      },
+      {
+        "text": "as",
+        "start": 57.407,
+        "end": 57.767,
+        "src_start": 60.54,
+        "highlight": false
+      },
+      {
+        "text": "I'm",
+        "start": 57.767,
+        "end": 58.047,
+        "src_start": 60.9,
+        "highlight": false
+      },
+      {
+        "text": "like",
+        "start": 58.047,
+        "end": 58.287,
+        "src_start": 61.18,
+        "highlight": false
+      },
+      {
+        "text": "research",
+        "start": 58.287,
+        "end": 58.767,
+        "src_start": 61.42,
+        "highlight": false
+      },
+      {
+        "text": "papers",
+        "start": 58.767,
+        "end": 59.287,
+        "src_start": 61.9,
+        "highlight": false
+      },
+      {
+        "text": "three",
+        "start": 59.287,
+        "end": 60.127,
+        "src_start": 62.42,
+        "highlight": false
+      },
+      {
+        "text": "build",
+        "start": 60.127,
+        "end": 60.927,
+        "src_start": 63.26,
+        "highlight": false
+      },
+      {
+        "text": "in",
+        "start": 60.927,
+        "end": 61.607,
+        "src_start": 64.06,
+        "highlight": false
+      },
+      {
+        "text": "public",
+        "start": 61.607,
+        "end": 62.067,
+        "src_start": 64.74,
+        "highlight": false
+      },
+      {
+        "text": "everything",
+        "start": 62.067,
+        "end": 63.007,
+        "src_start": 65.2,
+        "highlight": false
+      },
+      {
+        "text": "what",
+        "start": 63.007,
+        "end": 63.387,
+        "src_start": 66.14,
+        "highlight": false
+      },
+      {
+        "text": "happens",
+        "start": 63.387,
+        "end": 63.867,
+        "src_start": 66.52,
+        "highlight": false
+      },
+      {
+        "text": "and",
+        "start": 63.867,
+        "end": 64.247,
+        "src_start": 67.0,
+        "highlight": false
+      },
+      {
+        "text": "along",
+        "start": 64.247,
+        "end": 65.047,
+        "src_start": 67.38,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 65.047,
+        "end": 65.227,
+        "src_start": 68.18,
+        "highlight": false
+      },
+      {
+        "text": "way",
+        "start": 65.227,
+        "end": 65.4,
+        "src_start": 68.36,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 65.407,
+        "end": 66.007,
+        "src_start": 68.54,
+        "highlight": false
+      },
+      {
+        "text": "have",
+        "start": 66.007,
+        "end": 66.187,
+        "src_start": 69.14,
+        "highlight": false
+      },
+      {
+        "text": "no",
+        "start": 66.187,
+        "end": 66.367,
+        "src_start": 69.32,
+        "highlight": false
+      },
+      {
+        "text": "idea",
+        "start": 66.367,
+        "end": 66.707,
+        "src_start": 69.5,
+        "highlight": false
+      },
+      {
+        "text": "where",
+        "start": 66.707,
+        "end": 67.827,
+        "src_start": 69.84,
+        "highlight": false
+      },
+      {
+        "text": "it",
+        "start": 67.827,
+        "end": 68.307,
+        "src_start": 70.96,
+        "highlight": false
+      },
+      {
+        "text": "is",
+        "start": 68.307,
+        "end": 68.467,
+        "src_start": 71.44,
+        "highlight": false
+      },
+      {
+        "text": "going",
+        "start": 68.467,
+        "end": 68.787,
+        "src_start": 71.6,
+        "highlight": false
+      },
+      {
+        "text": "to",
+        "start": 68.787,
+        "end": 69.327,
+        "src_start": 71.92,
+        "highlight": false
+      },
+      {
+        "text": "take",
+        "start": 69.327,
+        "end": 69.547,
+        "src_start": 72.46,
+        "highlight": false
+      },
+      {
+        "text": "me",
+        "start": 69.547,
+        "end": 69.787,
+        "src_start": 72.68,
+        "highlight": false
+      },
+      {
+        "text": "but",
+        "start": 69.787,
+        "end": 70.107,
+        "src_start": 72.92,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 70.107,
+        "end": 70.247,
+        "src_start": 73.24,
+        "highlight": false
+      },
+      {
+        "text": "am",
+        "start": 70.247,
+        "end": 70.427,
+        "src_start": 73.38,
+        "highlight": false
+      },
+      {
+        "text": "going",
+        "start": 70.427,
+        "end": 71.127,
+        "src_start": 73.56,
+        "highlight": false
+      },
+      {
+        "text": "to",
+        "start": 71.127,
+        "end": 71.347,
+        "src_start": 74.26,
+        "highlight": false
+      },
+      {
+        "text": "documented.",
+        "start": 71.347,
+        "end": 71.907,
+        "src_start": 74.48,
+        "highlight": false
+      },
+      {
+        "text": "Let's",
+        "start": 72.047,
+        "end": 72.667,
+        "src_start": 75.48,
+        "highlight": false
+      },
+      {
+        "text": "see",
+        "start": 72.667,
+        "end": 72.807,
+        "src_start": 76.1,
+        "highlight": false
+      },
+      {
+        "text": "what",
+        "start": 72.807,
+        "end": 73.267,
+        "src_start": 76.24,
+        "highlight": false
+      },
+      {
+        "text": "we",
+        "start": 73.267,
+        "end": 73.467,
+        "src_start": 76.7,
+        "highlight": false
+      },
+      {
+        "text": "can",
+        "start": 73.467,
+        "end": 73.627,
+        "src_start": 76.9,
+        "highlight": false
+      },
+      {
+        "text": "build",
+        "start": 73.627,
+        "end": 73.933,
+        "src_start": 77.06,
+        "highlight": false
+      }
+    ]
+  },
+  "graphics": [
+    {
+      "type": "badge",
+      "text": "Day 1",
+      "start": 0.0,
+      "end": 2.5,
+      "position": "top_left"
+    },
+    {
+      "type": "diagram",
+      "spec": "lower_third: Talal Ahmed · AI Engineer",
+      "start": 2.9,
+      "end": 18.267,
+      "position": "middle"
+    },
+    {
+      "type": "callout",
+      "text": "Talal Ahmed · AI Engineer",
+      "start": 2.9,
+      "end": 5.4,
+      "position": "top"
+    },
+    {
+      "type": "diagram",
+      "spec": "kinetic words: LLMs → RAG → Agents → Products",
+      "start": 18.267,
+      "end": 33.633,
+      "position": "middle"
+    },
+    {
+      "type": "callout",
+      "text": "LLMs → RAG → Agents → Products",
+      "start": 18.267,
+      "end": 20.767,
+      "position": "top"
+    },
+    {
+      "type": "callout",
+      "text": "I'm going to build.",
+      "start": 33.633,
+      "end": 36.133,
+      "position": "top"
+    },
+    {
+      "type": "diagram",
+      "spec": "pillar cards 01 / 02 / 03",
+      "start": 38.3,
+      "end": 65.4,
+      "position": "middle"
+    },
+    {
+      "type": "callout",
+      "text": "01 BUILD · 02 AI · 03 THE JOURNEY",
+      "start": 38.3,
+      "end": 40.8,
+      "position": "top"
+    },
+    {
+      "type": "diagram",
+      "spec": "badge: Day 1 · end card: Talal Ahmed — AI Engineer → Builder",
+      "start": 72.0,
+      "end": 73.933,
+      "position": "middle"
+    },
+    {
+      "type": "callout",
+      "text": "BUILDING FROM SCRATCH · DAY 1",
+      "start": 72.0,
+      "end": 73.933,
+      "position": "top"
+    }
+  ],
+  "audio": {
+    "music": null,
+    "sfx": [],
+    "loudness_lufs": -14
+  },
+  "notes": [
+    "auto: 79.9s source → 73.9s cut, 14 segments, 1 words removed",
+    "NO HOOK TEXT — editor should add a hook_text graphic (≤7 words) at 0s"
+  ]
+}

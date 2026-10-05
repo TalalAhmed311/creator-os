@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "plan.json — script, hooks and shot list for one piece of content",
+  "type": "object",
+  "required": ["project_id", "pillar", "edit_preset", "target_length_s", "platforms", "series", "hooks", "chosen_hook", "beats", "shot_list", "caption_draft", "hashtags"],
+  "additionalProperties": false,
+  "properties": {
+    "project_id": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}_[a-z0-9-]+$" },
+    "pillar": { "enum": ["build-in-public", "ai-explained", "resources"] },
+    "edit_preset": { "enum": ["bip-raw", "ai-explained", "talking-head-basic"] },
+    "target_length_s": { "type": "number", "minimum": 5, "maximum": 180 },
+    "platforms": { "type": "array", "minItems": 1, "items": { "enum": ["instagram", "tiktok", "youtube", "linkedin"] } },
+    "day_n": { "type": ["integer", "null"], "minimum": 1 },
+    "series": {
+      "type": "object",
+      "required": ["name", "episode"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": ["string", "null"] },
+        "episode": { "type": ["integer", "null"], "minimum": 1 },
+        "next_tease": { "type": ["string", "null"] },
+        "callbacks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "hooks": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["type", "spoken", "on_screen", "first_frame_visual"],
+        "additionalProperties": false,
+        "properties": {
+          "type": { "enum": ["result_first", "curiosity_gap", "contrarian", "callout", "mistake", "progress_marker", "question", "visual_break"] },
+          "spoken": { "type": "string", "minLength": 1 },
+          "on_screen": { "type": "string", "minLength": 1 },
+          "first_frame_visual": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "chosen_hook": { "type": ["integer", "null"], "minimum": 0 },
+    "beats": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "spoken"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_-]+$" },
+          "spoken": { "type": "string" },
+          "on_screen": { "type": ["string", "null"] },
+          "broll": { "type": ["string", "null"] },
+          "graphic": { "type": ["string", "null"] },
+          "collage": {
+            "type": ["object", "null"],
+            "description": "Show images around the speaker for this beat. images: one per idea/sentence, in spoken order — a file path, or a description of the picture to gather (drop it as raw/images/<beat-id>_<n>.jpg).",
+            "required": ["images"],
+            "additionalProperties": false,
+            "properties": {
+              "images": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+              "why": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "collage_theme": { "type": ["string", "null"], "description": "brain/video-themes/<name> used by beats with a collage" },
+    "shot_list": { "type": "array", "items": { "type": "string" } },
+    "broll_list": { "type": "array", "items": { "type": "string" } },
+    "caption_draft": { "type": "string" },
+    "hashtags": { "type": "array", "items": { "type": "string" } }
+  }
+}

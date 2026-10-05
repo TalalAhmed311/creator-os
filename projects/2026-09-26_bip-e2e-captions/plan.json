@@ -1,0 +1,26 @@
+{
+  "project_id": "2026-09-26_bip-e2e-captions",
+  "pillar": "build-in-public",
+  "edit_preset": "bip-raw",
+  "target_length_s": 35,
+  "platforms": ["instagram", "tiktok"],
+  "day_n": 12,
+  "series": {"name": null, "episode": null},
+  "hooks": [
+    {"type": "result_first", "spoken": "This took me three hours instead of three weeks.", "on_screen": "3 hours, not 3 weeks", "first_frame_visual": "Dashboard with the new onboarding flow"},
+    {"type": "mistake", "spoken": "I almost shipped the wrong onboarding.", "on_screen": "I almost shipped this", "first_frame_visual": "Old onboarding screen, red X"},
+    {"type": "progress_marker", "spoken": "Day twelve of building in public.", "on_screen": "Day 12", "first_frame_visual": "Face close, mid-sentence"}
+  ],
+  "chosen_hook": 0,
+  "beats": [
+    {"id": "hook", "spoken": "This took me three hours instead of three weeks.", "on_screen": "3 hours, not 3 weeks", "broll": null},
+    {"id": "context", "spoken": "I rebuilt the whole onboarding flow today.", "on_screen": null, "broll": "screen recording of dashboard"},
+    {"id": "value", "spoken": "The trick was letting Claude write the boring parts while I designed the flow.", "graphic": "diagram: idea -> Claude -> working flow"},
+    {"id": "payoff", "spoken": "Signups went from forty percent to seventy percent completion."},
+    {"id": "cta", "spoken": "Follow. Day thirteen tomorrow."}
+  ],
+  "shot_list": ["Talking head, eye level, window light", "Screen: new onboarding flow", "Hands on keyboard"],
+  "broll_list": ["Screen recording of the old vs new flow"],
+  "caption_draft": "3 hours, not 3 weeks. Here's how I rebuilt onboarding on Day 12.",
+  "hashtags": ["buildinpublic", "indiehacker", "claude"]
+}

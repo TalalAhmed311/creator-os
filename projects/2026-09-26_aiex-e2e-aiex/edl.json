@@ -1,0 +1,431 @@
+{
+  "project_id": "2026-09-26_aiex-e2e-aiex",
+  "edit_preset": "ai-explained",
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "sources": {
+    "cam": "raw/cam.mp4",
+    "mic": "raw/mic.wav",
+    "mic_offset_ms": 411.9
+  },
+  "segments": [
+    {
+      "src": "cam",
+      "in": 4.28,
+      "out": 6.823,
+      "beat": "hook",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.06,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 7.67,
+      "out": 10.031,
+      "beat": "context",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.06,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": {
+        "file": "raw/broll/broll.mp4",
+        "in": 0.5,
+        "mode": "split_top"
+      }
+    },
+    {
+      "src": "cam",
+      "in": 11.624,
+      "out": 15.686,
+      "beat": "value",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.06,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": null
+    },
+    {
+      "src": "cam",
+      "in": 16.42,
+      "out": 20.028,
+      "beat": "payoff",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.06,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": {
+        "file": "raw/broll/broll.mp4",
+        "in": 2.0,
+        "mode": "pip"
+      }
+    },
+    {
+      "src": "cam",
+      "in": 21.26,
+      "out": 23.326,
+      "beat": "cta",
+      "reframe": "face_track",
+      "zoom": {
+        "from": 1.0,
+        "to": 1.06,
+        "ease": "easeInOut"
+      },
+      "overlay_broll": null
+    }
+  ],
+  "captions": {
+    "style": "ai-explained",
+    "enabled": true,
+    "size": 1.0,
+    "max_words": 3,
+    "words": [
+      {
+        "text": "This",
+        "start": 0.093,
+        "end": 0.315,
+        "src_start": 4.36,
+        "highlight": false
+      },
+      {
+        "text": "took",
+        "start": 0.335,
+        "end": 0.557,
+        "src_start": 4.602,
+        "highlight": false
+      },
+      {
+        "text": "me",
+        "start": 0.577,
+        "end": 0.71,
+        "src_start": 4.844,
+        "highlight": false
+      },
+      {
+        "text": "three",
+        "start": 0.722,
+        "end": 0.989,
+        "src_start": 4.989,
+        "highlight": false
+      },
+      {
+        "text": "hours",
+        "start": 1.012,
+        "end": 1.279,
+        "src_start": 5.279,
+        "highlight": false
+      },
+      {
+        "text": "instead",
+        "start": 1.302,
+        "end": 1.658,
+        "src_start": 5.569,
+        "highlight": false
+      },
+      {
+        "text": "of",
+        "start": 1.689,
+        "end": 1.823,
+        "src_start": 5.956,
+        "highlight": false
+      },
+      {
+        "text": "three",
+        "start": 1.834,
+        "end": 2.101,
+        "src_start": 6.101,
+        "highlight": false
+      },
+      {
+        "text": "weeks.",
+        "start": 2.124,
+        "end": 2.436,
+        "src_start": 6.391,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 2.65,
+        "end": 2.744,
+        "src_start": 7.75,
+        "highlight": false
+      },
+      {
+        "text": "rebuilt",
+        "start": 2.752,
+        "end": 3.127,
+        "src_start": 7.852,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 3.159,
+        "end": 3.347,
+        "src_start": 8.259,
+        "highlight": false
+      },
+      {
+        "text": "whole",
+        "start": 3.363,
+        "end": 3.644,
+        "src_start": 8.463,
+        "highlight": false
+      },
+      {
+        "text": "onboarding",
+        "start": 3.669,
+        "end": 4.184,
+        "src_start": 8.769,
+        "highlight": false
+      },
+      {
+        "text": "flow",
+        "start": 4.229,
+        "end": 4.463,
+        "src_start": 9.329,
+        "highlight": false
+      },
+      {
+        "text": "today.",
+        "start": 4.483,
+        "end": 4.811,
+        "src_start": 9.583,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 4.94,
+        "end": 5.124,
+        "src_start": 11.64,
+        "highlight": false
+      },
+      {
+        "text": "trick",
+        "start": 5.14,
+        "end": 5.416,
+        "src_start": 11.84,
+        "highlight": false
+      },
+      {
+        "text": "was",
+        "start": 5.44,
+        "end": 5.624,
+        "src_start": 12.14,
+        "highlight": false
+      },
+      {
+        "text": "letting",
+        "start": 5.64,
+        "end": 6.008,
+        "src_start": 12.34,
+        "highlight": false
+      },
+      {
+        "text": "Claude",
+        "start": 6.04,
+        "end": 6.362,
+        "src_start": 12.74,
+        "highlight": true
+      },
+      {
+        "text": "write",
+        "start": 6.39,
+        "end": 6.666,
+        "src_start": 13.09,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 6.69,
+        "end": 6.874,
+        "src_start": 13.39,
+        "highlight": false
+      },
+      {
+        "text": "boring",
+        "start": 6.89,
+        "end": 7.212,
+        "src_start": 13.59,
+        "highlight": false
+      },
+      {
+        "text": "parts",
+        "start": 7.24,
+        "end": 7.516,
+        "src_start": 13.94,
+        "highlight": false
+      },
+      {
+        "text": "while",
+        "start": 7.54,
+        "end": 7.816,
+        "src_start": 14.24,
+        "highlight": false
+      },
+      {
+        "text": "I",
+        "start": 7.84,
+        "end": 7.932,
+        "src_start": 14.54,
+        "highlight": false
+      },
+      {
+        "text": "designed",
+        "start": 7.94,
+        "end": 8.354,
+        "src_start": 14.64,
+        "highlight": false
+      },
+      {
+        "text": "the",
+        "start": 8.39,
+        "end": 8.574,
+        "src_start": 15.09,
+        "highlight": false
+      },
+      {
+        "text": "flow.",
+        "start": 8.59,
+        "end": 8.866,
+        "src_start": 15.29,
+        "highlight": false
+      },
+      {
+        "text": "Signups",
+        "start": 9.067,
+        "end": 9.693,
+        "src_start": 16.5,
+        "highlight": false
+      },
+      {
+        "text": "went",
+        "start": 9.748,
+        "end": 10.14,
+        "src_start": 17.181,
+        "highlight": false
+      },
+      {
+        "text": "from",
+        "start": 10.174,
+        "end": 10.565,
+        "src_start": 17.607,
+        "highlight": false
+      },
+      {
+        "text": "40%",
+        "start": 10.599,
+        "end": 10.912,
+        "src_start": 18.032,
+        "highlight": true
+      },
+      {
+        "text": "to",
+        "start": 10.94,
+        "end": 11.175,
+        "src_start": 18.373,
+        "highlight": false
+      },
+      {
+        "text": "70%",
+        "start": 11.195,
+        "end": 11.508,
+        "src_start": 18.628,
+        "highlight": true
+      },
+      {
+        "text": "completion.",
+        "start": 11.536,
+        "end": 12.475,
+        "src_start": 18.969,
+        "highlight": false
+      },
+      {
+        "text": "Follow.",
+        "start": 12.673,
+        "end": 13.142,
+        "src_start": 21.34,
+        "highlight": false
+      },
+      {
+        "text": "Day",
+        "start": 13.443,
+        "end": 13.692,
+        "src_start": 22.11,
+        "highlight": false
+      },
+      {
+        "text": "13",
+        "start": 13.714,
+        "end": 13.9,
+        "src_start": 22.381,
+        "highlight": true
+      },
+      {
+        "text": "tomorrow.",
+        "start": 13.917,
+        "end": 14.539,
+        "src_start": 22.584,
+        "highlight": false
+      }
+    ]
+  },
+  "graphics": [
+    {
+      "type": "hook_text",
+      "text": "3 hours, not 3 weeks",
+      "start": 0.0,
+      "end": 2.567,
+      "position": "top"
+    },
+    {
+      "type": "series_tag",
+      "text": "AI Explained #1",
+      "start": 0.0,
+      "end": 3.0,
+      "position": "top_right"
+    },
+    {
+      "type": "diagram",
+      "spec": "idea -> Claude -> working flow",
+      "start": 4.933,
+      "end": 9.0,
+      "position": "middle"
+    },
+    {
+      "type": "intro_sting",
+      "text": "AI Explained #1",
+      "start": 2.566666,
+      "end": 3.767
+    }
+  ],
+  "audio": {
+    "music": {
+      "file": "tests/media/music.wav",
+      "gain_db": -18,
+      "duck": true
+    },
+    "sfx": [
+      {
+        "file": "tests/media/whoosh.wav",
+        "at": 2.567,
+        "gain_db": -8
+      }
+    ],
+    "loudness_lufs": -14
+  },
+  "notes": [
+    "auto: 24.5s source \u2192 14.7s cut, 5 segments, 9 words removed"
+  ]
+}

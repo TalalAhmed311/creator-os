@@ -1,0 +1,15 @@
+{
+  "project_id": "2026-09-26_bip-day-12",
+  "edit_preset": "bip-raw",
+  "output": {"width": 1080, "height": 1920, "fps": 30},
+  "sources": {"cam": "raw/cam.mp4", "mic": "raw/mic.wav", "mic_offset_ms": 412},
+  "segments": [
+    {"src": "cam", "in": 12.34, "out": 15.80, "beat": "hook", "reframe": "face_track", "zoom": {"from": 1.0, "to": 1.15, "ease": "easeOut"}, "overlay_broll": null}
+  ],
+  "captions": {"style": "bip-raw", "words": [{"text": "three", "start": 0.12, "end": 0.40, "highlight": true}]},
+  "graphics": [
+    {"type": "badge", "text": "Day 12", "start": 0.0, "end": 2.5},
+    {"type": "diagram", "spec": "request -> model -> response", "start": 1.0, "end": 3.4}
+  ],
+  "audio": {"music": {"file": "assets/music/energetic-01.mp3", "gain_db": -18, "duck": true}, "sfx": [{"file": "assets/sfx/whoosh.wav", "at": 3.2}], "loudness_lufs": -14}
+}

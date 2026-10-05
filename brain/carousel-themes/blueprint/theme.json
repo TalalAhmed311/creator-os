@@ -1,0 +1,10 @@
+{
+  "name": "blueprint",
+  "description": "Blue engineering grid, white technical type, cyan accent.",
+  "background": {"generator": "blueprint", "image": null, "darken": 0.0, "blur_px": 0},
+  "background_prompt": "architectural blueprint paper, deep blue with fine white grid lines and faint technical drawings at the edges, flat, no text, 4:5",
+  "colors": {"bg": "#0B3D91", "text": "#FFFFFF", "muted": "#C9DBFF", "accent": "#7FE7FF", "card": "rgba(4,32,84,0.78)"},
+  "fonts": {"title": "Space Grotesk", "title_weight": 700, "body": "IBM Plex Mono", "body_weight": 500},
+  "title_size": 96,
+  "card_style": "outline"
+}

@@ -1,0 +1,7 @@
+{
+  "transcriber": "auto",
+  "whisper_model": "mlx-community/whisper-large-v3-turbo",
+  "whisper_cpp_model": "assets/models/ggml-large-v3-turbo.bin",
+  "language": "en",
+  "face_detector": "auto"
+}

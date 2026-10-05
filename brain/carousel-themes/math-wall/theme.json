@@ -1,0 +1,10 @@
+{
+  "name": "math-wall",
+  "description": "Equations chalked on a dark board; chalk-white text, warm yellow accent.",
+  "background": {"generator": "math-wall", "image": null, "darken": 0.35, "blur_px": 0},
+  "background_prompt": "dark green-black chalkboard densely covered in faint handwritten math equations and diagrams, chalk dust, soft vignette, no readable text in the centre, photographic, 4:5",
+  "colors": {"bg": "#16201b", "text": "#F4F1E8", "muted": "#B9C2B5", "accent": "#FFD66B", "card": "rgba(10,14,12,0.72)"},
+  "fonts": {"title": "Caveat", "title_weight": 700, "body": "Inter", "body_weight": 500},
+  "title_size": 112,
+  "card_style": "chalk"
+}

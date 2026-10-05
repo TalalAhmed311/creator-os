@@ -1,0 +1,10 @@
+{
+  "name": "terminal",
+  "description": "Black terminal, mono font, green accents, a blinking-cursor feel.",
+  "background": {"generator": "terminal", "image": null, "darken": 0.0, "blur_px": 0},
+  "background_prompt": "close-up of a dark monitor showing faint green terminal output, shallow depth of field, very dark, no readable text in the centre, 4:5",
+  "colors": {"bg": "#0A0A0A", "text": "#E6FFE9", "muted": "#8FB996", "accent": "#39FF88", "card": "rgba(12,18,13,0.9)"},
+  "fonts": {"title": "JetBrains Mono", "title_weight": 800, "body": "JetBrains Mono", "body_weight": 500},
+  "title_size": 84,
+  "card_style": "terminal"
+}

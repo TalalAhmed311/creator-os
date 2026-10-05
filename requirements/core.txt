@@ -1,0 +1,9 @@
+# Core: everything the studio needs (Edit Bay without transcription, Design Desk, memory, NLE export).
+# Kept small on purpose: scene detection uses ffmpeg, carousels render with the installed Chrome.
+numpy
+scipy
+jsonschema
+rapidfuzz
+opentimelineio
+otio-fcpx-xml-adapter
+pytest

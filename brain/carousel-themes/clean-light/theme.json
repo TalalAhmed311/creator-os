@@ -1,0 +1,10 @@
+{
+  "name": "clean-light",
+  "description": "Minimal light background in brand colours; lots of whitespace.",
+  "background": {"generator": "clean-light", "image": null, "darken": 0.0, "blur_px": 0},
+  "background_prompt": "soft off-white paper texture with a subtle brand-colour gradient glow in one corner, minimal, no objects, no text, 4:5",
+  "colors": {"bg": "#F7F6F2", "text": "#14141A", "muted": "#5A5A66", "accent": "#5B5BF7", "card": "rgba(255,255,255,0.9)"},
+  "fonts": {"title": "Inter", "title_weight": 800, "body": "Inter", "body_weight": 500},
+  "title_size": 100,
+  "card_style": "soft"
+}

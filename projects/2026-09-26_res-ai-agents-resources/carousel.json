@@ -1,0 +1,141 @@
+{
+  "project_id": "2026-09-26_res-ai-agents-resources",
+  "theme": "terminal",
+  "size": "1080x1350",
+  "handle": "",
+  "background": null,
+  "slides": [
+    {
+      "kind": "hook",
+      "title": "7 free resources to actually learn AI agents",
+      "subtitle": "from zero to building"
+    },
+    {
+      "kind": "resource",
+      "name": "Building Effective Agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "value": "When you need an agent vs a simple workflow, and the patterns that actually work.",
+      "for_who": "Anyone about to build their first agent",
+      "tag": "Guide · Anthropic",
+      "verified": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://www.anthropic.com/engineering/building-effective-agents",
+        "checked": "2026-09-26"
+      }
+    },
+    {
+      "kind": "resource",
+      "name": "LLM Powered Autonomous Agents",
+      "url": "https://lilianweng.github.io/posts/2023-06-23-agent/",
+      "value": "The classic map of an agent: planning, memory and tool use.",
+      "for_who": "Devs who want the big picture first",
+      "tag": "Article",
+      "verified": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://lilianweng.github.io/posts/2023-06-23-agent/",
+        "checked": "2026-09-26"
+      }
+    },
+    {
+      "kind": "resource",
+      "name": "ReAct",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "value": "The 'think, then act' loop behind almost every agent you use today.",
+      "for_who": "Curious devs who like the original source",
+      "tag": "Paper",
+      "verified": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://arxiv.org/abs/2210.03629",
+        "checked": "2026-09-26"
+      }
+    },
+    {
+      "kind": "resource",
+      "name": "Hugging Face Agents Course",
+      "url": "https://huggingface.co/learn/agents-course",
+      "value": "Build agents hands-on, step by step, with a certificate at the end.",
+      "for_who": "Beginners who learn by doing",
+      "tag": "Free course",
+      "verified": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://huggingface.co/learn/agents-course/unit0/introduction",
+        "checked": "2026-09-26"
+      }
+    },
+    {
+      "kind": "resource",
+      "name": "AI Agents for Beginners",
+      "url": "https://github.com/microsoft/ai-agents-for-beginners",
+      "value": "Lesson-by-lesson course with runnable code for every agent pattern.",
+      "for_who": "Devs who want structured practice",
+      "tag": "Repo · Microsoft",
+      "verified": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://github.com/microsoft/ai-agents-for-beginners",
+        "checked": "2026-09-26",
+        "repo": {
+          "stars": 75721,
+          "pushed_at": "2026-09-19",
+          "archived": false,
+          "months_since_push": 0.2,
+          "maintained": true,
+          "description": "18 Lessons to Get Started Building AI Agents"
+        }
+      }
+    },
+    {
+      "kind": "resource",
+      "name": "smolagents",
+      "url": "https://github.com/huggingface/smolagents",
+      "value": "A tiny agent library you can read in an afternoon, then ship with.",
+      "for_who": "Python devs ready to build",
+      "tag": "Repo",
+      "verified": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://github.com/huggingface/smolagents",
+        "checked": "2026-09-26",
+        "repo": {
+          "stars": 29502,
+          "pushed_at": "2026-09-23",
+          "archived": false,
+          "months_since_push": 0.1,
+          "maintained": true,
+          "description": "🤗 smolagents: a barebones library for agents that think in code."
+        }
+      }
+    },
+    {
+      "kind": "resource",
+      "name": "Model Context Protocol",
+      "url": "https://modelcontextprotocol.io",
+      "value": "The open standard for plugging tools and data into any agent.",
+      "for_who": "Anyone connecting agents to real apps",
+      "tag": "Docs",
+      "verified": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro",
+        "checked": "2026-09-26"
+      }
+    },
+    {
+      "kind": "cta",
+      "title": "Save this before you build your first agent",
+      "subtitle": "Follow for more AI, explained simply"
+    }
+  ],
+  "caption_draft": "7 free resources to go from \"what's an agent?\" to building one.\nStart with the Anthropic guide, end with MCP.\nSave this for your next weekend build.",
+  "hashtags": [
+    "aiagents",
+    "llm",
+    "learnai",
+    "buildinpublic",
+    "developers"
+  ]
+}

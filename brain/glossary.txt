@@ -1,0 +1,24 @@
+# One term per line. Fed to Whisper as a prompt and used to fix spelling in transcripts.
+# Add your product name, tools, people and acronyms here.
+Claude
+Claude Code
+ChatGPT
+OpenAI
+Anthropic
+LLM
+LLMs
+RAG
+API
+GPU
+MCP
+Remotion
+TikTok
+Instagram
+GitHub
+Python
+TypeScript
+Next.js
+Supabase
+Vercel
+SaaS
+MVP
