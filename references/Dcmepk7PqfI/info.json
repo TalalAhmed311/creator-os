@@ -1,0 +1,16 @@
+{
+  "id": "Dcmepk7PqfI",
+  "title": "Video by askcatgpt",
+  "channel": "askcatgpt",
+  "uploader": "CatGPT",
+  "uploader_id": "69059572228",
+  "webpage_url": "https://www.instagram.com/reel/Dcmepk7PqfI/",
+  "duration": null,
+  "view_count": null,
+  "like_count": 12275,
+  "comment_count": 135,
+  "repost_count": null,
+  "upload_date": "20260828",
+  "timestamp": 1787957808,
+  "description": "What the hell are Fable, Opus, Sonnet, and Haiku?\n\nThese are the 4 model classes of @claudeai \n\nIn order from MOST to LEAST intelligent, it’s:\nFable\nOpus\nSonnet\nHaiku\n\nWhen should you use each?\n\nWell, the more intelligent the model, the more complex of tasks it can handle, and the longer it can go without making a mistake. It also will tend to use more tokens, so if you want to save that, you can use a lower model or turn down the “effort” (this keeps the level of judgement high while ‘forcing’ Claude to do less ‘thinking’ and fewer tool calls.)\n\nAll 4 model classes can be used in Chat, Cowork, and Claude Code, AND they all have access to the same connectors and skills.\n\nHbu? Which model do you use the most? What other differences have you noticed?\n\nThanks to the team at @claudeai for helping bring this video to life."
+}
