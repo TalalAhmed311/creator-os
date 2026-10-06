@@ -1,0 +1,16 @@
+{
+  "id": "Db08_zoPy-B",
+  "title": "Video by realrileybrown",
+  "channel": "realrileybrown",
+  "uploader": "Riley Brown",
+  "uploader_id": "44218254224",
+  "webpage_url": "https://www.instagram.com/reel/Db08_zoPy-B/",
+  "duration": null,
+  "view_count": null,
+  "like_count": 3959,
+  "comment_count": 166,
+  "repost_count": null,
+  "upload_date": "20260809",
+  "timestamp": 1786295862,
+  "description": "Fable 5 is just absurd.\n\nHere: Fable 5 analyzed 3.5 years of my bank statements (108 PDFs), then made an interactive “Google Maps-like” app that plots every place I’ve eaten.\n\nPrompt: \nPlease can you look at all of the downloaded bank statements for my accounts for the past 3 years located in the folder in my downloads. (This will be 108 total PDFs)\n\nPlot this on a site - a 3D globe that looks like google maps. I should see every place i've eaten on a map.\n\nSo parse all of the documents, and put all restraunts / coffee shops / food into a csy then use that data to make the following site.\n\nThen deploy to vercel so i have a public link i can share with people."
+}
