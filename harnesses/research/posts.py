@@ -134,7 +134,8 @@ def set_analysis(con: sqlite3.Connection, post_ref: str | int, **fields) -> dict
 
 
 def listing(con: sqlite3.Connection, platform: str | None = None, handle: str | None = None, cluster: str | None = None,
-            min_outlier: float | None = None, analysed: bool | None = None, limit: int | None = None) -> list[dict]:
+            min_outlier: float | None = None, analysed: bool | None = None, limit: int | None = None,
+            metric: str = "auto") -> list[dict]:
     where, params = ["p.handle_id IS NOT NULL"], []
     if platform:
         where.append("p.platform = ?")
@@ -147,7 +148,7 @@ def listing(con: sqlite3.Connection, platform: str | None = None, handle: str | 
         params.append(cluster)
     if analysed is not None:
         where.append(f"an.id IS {'NOT ' if analysed else ''}NULL")
-    rows = db.with_outlier_scores(con, db.post_table(con, " AND ".join(where), tuple(params)))
+    rows = db.with_outlier_scores(con, db.post_table(con, " AND ".join(where), tuple(params)), metric=metric)
     if min_outlier is not None:
         rows = [r for r in rows if r["outlier"] is not None and r["outlier"] >= min_outlier]
     rows.sort(key=lambda r: (r["outlier"] is None, -(r["outlier"] or 0), -(r["views"] or 0)))

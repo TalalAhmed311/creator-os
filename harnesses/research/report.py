@@ -46,13 +46,14 @@ def build(con: sqlite3.Connection, slug: str, platform: str | None = None, topic
         if r["how_to_apply"]:
             lines += [f"**How to apply:** {r['how_to_apply']}", ""]
         for e in r["evidence"]:
-            lines.append(f"- [@{e['author']}]({e['url']}) — {_n(e['views'])} views, {e['outlier'] or '—'}× their normal"
+            counter = f"{_n(e['views'])} views" if e["outlier_metric"] != "likes" else f"{_n(e['likes'])} likes/reactions"
+            lines.append(f"- [@{e['author']}]({e['url']}) — {counter}, {e['outlier'] or '—'}× their normal"
                          + (f" — “{e['hook'][:90]}”" if e["hook"] else ""))
         lines.append("")
-    lines += ["## Outlier posts", "", "| # | Creator | Views | × normal | Basis | Hook | Post |", "|--:|---|--:|--:|---|---|---|"]
+    lines += ["## Outlier posts", "", "| # | Creator | Views | Likes | × normal | Basis | Hook | Post |", "|--:|---|--:|--:|--:|---|---|---|"]
     for i, p in enumerate(outliers, 1):
         hook = (p["hook_text"] or "").replace("|", "/")[:60]
-        lines.append(f"| {i} | @{p['author_handle']} | {_n(p['views'])} | {p['outlier'] or '—'} | {p['outlier_basis'] or '—'} | {hook} | [link]({p['url']}) |")
+        lines.append(f"| {i} | @{p['author_handle']} | {_n(p['views'])} | {_n(p['likes'])} | {p['outlier'] or '—'} | {p['outlier_basis'] or '—'} | {hook} | [link]({p['url']}) |")
     lines += ["", f"Creators in this report: {', '.join('@' + a for a in authors) or '—'}", "",
               "Numbers: public counters at capture time (yt-dlp = platform's own counter) or third-party estimates; "
               "see `creator_snapshots.source` / `metric_snapshots.source`.", ""]

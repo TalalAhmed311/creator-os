@@ -37,7 +37,7 @@ def ranked(con: sqlite3.Connection, platform: str | None = None, topic: str | No
         ev = evidence(con, r["id"])
         outs = [min(p["outlier"], 10) for p in ev if p["outlier"] is not None]
         r["evidence"] = [{"post_id": p["id"], "url": p["url"], "author": p["author_handle"], "views": p["views"],
-                          "outlier": p["outlier"], "hook": p["hook_text"]} for p in ev]
+                          "likes": p["likes"], "outlier": p["outlier"], "outlier_metric": p["outlier_metric"], "hook": p["hook_text"]} for p in ev]
         r["avg_outlier"] = round(mean(outs), 2) if outs else None
         r["rank_score"] = round(CONF[r["confidence"]] * 2 + r["seen"] + len(ev) + (mean(outs) / 2 if outs else 0), 2)
     rows.sort(key=lambda r: -r["rank_score"])

@@ -43,6 +43,22 @@ def add(con: sqlite3.Connection, pattern: str, kind: str, platform: str | None =
     return {"insight_id": iid, "merged": merged}
 
 
+def add_evidence(con: sqlite3.Connection, insight_id: int, evidence: list[int]) -> dict:
+    """Attach more proving posts to an existing insight (e.g. one another analyst found later)."""
+    if not con.execute("SELECT 1 FROM insights WHERE id = ?", (insight_id,)).fetchone():
+        raise SystemExit(f"no insight {insight_id} (research insight list)")
+    for pid in evidence:
+        if not db.find_post(con, pid):
+            raise SystemExit(f"evidence post {pid} is not in the database (research post add <url>)")
+    with con:
+        before = con.execute("SELECT COUNT(*) FROM insight_evidence WHERE insight_id = ?", (insight_id,)).fetchone()[0]
+        con.executemany("INSERT OR IGNORE INTO insight_evidence (insight_id, post_id) VALUES (?, ?)",
+                        [(insight_id, p) for p in evidence])
+        after = con.execute("SELECT COUNT(*) FROM insight_evidence WHERE insight_id = ?", (insight_id,)).fetchone()[0]
+        con.execute("UPDATE insights SET updated_at = ? WHERE id = ?", (db.now(), insight_id))
+    return {"insight_id": insight_id, "added": after - before, "evidence_posts": after}
+
+
 def retire(con: sqlite3.Connection, insight_id: int) -> None:
     with con:
         con.execute("UPDATE insights SET status = 'retired', updated_at = ? WHERE id = ?", (db.now(), insight_id))
