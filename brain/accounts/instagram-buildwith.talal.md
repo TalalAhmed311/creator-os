@@ -3,11 +3,11 @@ platform: instagram
 handle: buildwith.talal
 status: active
 purpose: Building AI products from scratch in public, plus technical concepts and AI series explained so people learn along the way
-audience: TODO (who exactly, and their level — e.g. developers / students curious about building with AI)
+audience: Beginner to advanced — anyone who wants to build with AI, non-technical people and engineers alike
 pillars: [build-in-public, ai-explained, resources]
 formats: [reel, carousel]
-cadence: TODO
-goals: TODO
+cadence: 1 post a day minimum, up to 2–3 a day when content is taking off (driven by what goes viral)
+goals: By 2027-01-04 (90 days from 2026-10-06) — grow reach per post and reach ~50K followers
 voice: see brain/brand-bible.md
 ---
 # @buildwith.talal (Instagram)
@@ -22,6 +22,14 @@ Bio (as of 2026-10-06): "Building AI products from scratch · Experiments, engin
 - **Technical concepts** — engineering and AI concepts explained simply.
 - **Series around AI** — recurring, numbered series (e.g. *AI Explained*, see `brain/series-bible.md`); more series can be added.
 - **Resource carousels** — learning-material lists people save (`resources` pillar). A regular format (owner, 2026-10-06).
+
+## Audience (owner, 2026-10-06)
+Beginner to advanced — people who want to build with AI, both non-technical (layman) and technical. Every post should work for
+both: a hook and explanation a beginner gets, with enough real technical substance that engineers still learn something.
+
+## Goal & cadence (owner, 2026-10-06)
+- **90-day goal (→ 2027-01-04):** increase reach per post and grow to ~50K followers (from 42 on 2026-10-06).
+- **Cadence:** at least 1 post a day; go to 2–3 a day when something is taking off, to ride the momentum.
 
 ## Formats
 - **Reels** — build-in-public updates, technical-concept explainers, AI series episodes.
