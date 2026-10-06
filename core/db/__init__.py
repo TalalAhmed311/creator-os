@@ -18,11 +18,29 @@ from core.common import STUDIO
 
 DATA = STUDIO / "data"
 SCHEMA = Path(__file__).with_name("schema.sql")
-MIGRATIONS: list[str] = [SCHEMA.read_text()]  # append new migration SQL here; never edit a shipped one
 PLATFORMS = ("instagram", "linkedin", "x", "tiktok", "youtube")
 QUALITIES = ("verified", "estimated")
 METRICS = ("views", "likes", "comments", "shares", "saves", "reposts", "impressions", "reach", "avg_watch_pct",
            "profile_visits", "follows")
+
+
+def _latest_metrics_view() -> str:
+    """v2: each metric is its newest non-empty value, so a snapshot that lacks a counter (yt-dlp has no IG views) never
+    hides one read elsewhere. captured_at/source/quality describe the snapshot the views came from (else the newest)."""
+    newest = "SELECT {sel} FROM metric_snapshots s WHERE s.post_id = p.post_id{cond} ORDER BY s.captured_at DESC, s.id DESC LIMIT 1"
+    cols = ",\n  ".join(f"({newest.format(sel='s.' + m, cond=f' AND s.{m} IS NOT NULL')}) AS {m}" for m in METRICS)
+    meta = ",\n  ".join(
+        f"COALESCE(({newest.format(sel='s.' + c, cond=' AND s.views IS NOT NULL')}), ({newest.format(sel='s.' + c, cond='')})) AS {c}"
+        for c in ("id", "captured_at", "source", "quality"))
+    return f"""DROP VIEW IF EXISTS latest_metrics;
+CREATE VIEW latest_metrics AS
+SELECT p.post_id,
+  {meta},
+  {cols}
+FROM (SELECT DISTINCT post_id FROM metric_snapshots) p;"""
+
+
+MIGRATIONS: list[str] = [SCHEMA.read_text(), _latest_metrics_view()]  # append new migration SQL here; never edit a shipped one
 
 
 def db_path() -> Path:
@@ -172,6 +190,8 @@ def add_metrics(con: sqlite3.Connection, post_id: int, source: str, quality: str
     values = {k: v for k, v in values.items() if k in METRICS and v is not None}
     if not values:
         return None
+    if captured_at and len(captured_at) == 10 and captured_at == now()[:10]:
+        captured_at = None  # "today" as a bare date would sort before this morning's timestamped snapshots
     cols = ["post_id", "captured_at", "source", "quality", *values]
     return con.execute(f"INSERT INTO metric_snapshots ({', '.join(cols)}) VALUES ({', '.join('?' * len(cols))})",
                        [post_id, captured_at or now(), source, quality, *values.values()]).lastrowid
@@ -193,28 +213,38 @@ def post_table(con: sqlite3.Connection, where: str = "1", params: tuple = ()) ->
         WHERE {where}""", params))
 
 
-def with_outlier_scores(con: sqlite3.Connection, posts: list[dict], min_posts: int = 3) -> list[dict]:
+OUTLIER_METRICS = ("views", "likes")  # likes = reactions; the fallback where views aren't public (LinkedIn)
+
+
+def with_outlier_scores(con: sqlite3.Connection, posts: list[dict], min_posts: int = 3, metric: str = "auto") -> list[dict]:
     """Add `outlier` = views ÷ the author's median views (needs ≥ min_posts posts with views by that author on that
-    platform); otherwise views ÷ the creator's latest typical views snapshot. `outlier_basis` says which."""
-    groups: dict[tuple, list[float]] = {}
+    platform); otherwise views ÷ the creator's latest typical views snapshot; otherwise (metric "auto" or "likes")
+    likes ÷ the author's median likes. `outlier_metric` and `outlier_basis` say which."""
+    if metric not in ("auto", *OUTLIER_METRICS):
+        raise ValueError(f"metric must be auto, {' or '.join(OUTLIER_METRICS)}")
+    order = OUTLIER_METRICS if metric == "auto" else (metric,)
+    groups: dict[tuple, dict[str, list[float]]] = {}
     # medians use every post the author has in the database, not only the ones passed in
     for plat, hid, aid in {(p["platform"], p["handle_id"], p["account_id"]) for p in posts}:
         col, val = ("handle_id", hid) if hid is not None else ("account_id", aid)
-        vals = [r[0] for r in con.execute(f"""SELECT m.views FROM posts p JOIN latest_metrics m ON m.post_id = p.id
-                                             WHERE p.platform = ? AND p.{col} = ? AND m.views IS NOT NULL""", (plat, val))]
-        groups[(plat, hid, aid)] = vals
+        groups[(plat, hid, aid)] = {m: [r[0] for r in con.execute(
+            f"""SELECT m.{m} FROM posts p JOIN latest_metrics m ON m.post_id = p.id
+                WHERE p.platform = ? AND p.{col} = ? AND m.{m} IS NOT NULL""", (plat, val))] for m in order}
     for p in posts:
-        p["outlier"], p["outlier_basis"], p["author_median"] = None, None, None
-        if p.get("views") is None:
-            continue
-        vals = groups.get((p["platform"], p["handle_id"], p["account_id"]), [])
-        if len(vals) >= min_posts and median(vals) > 0:
-            p["author_median"] = median(vals)
-            p["outlier"], p["outlier_basis"] = round(p["views"] / median(vals), 2), f"median of {len(vals)} posts"
-        elif p.get("handle_id"):
-            typical = latest_creator_value(con, p["handle_id"], "typical_views")
-            if typical:
+        p["outlier"], p["outlier_basis"], p["outlier_metric"], p["author_median"] = None, None, None, None
+        g = groups.get((p["platform"], p["handle_id"], p["account_id"]), {})
+        for m in order:
+            if p.get(m) is None:
+                continue
+            vals = g.get(m, [])
+            if len(vals) >= min_posts and median(vals) > 0:
+                p["author_median"] = median(vals)
+                p["outlier"], p["outlier_basis"] = round(p[m] / median(vals), 2), f"median {m} of {len(vals)} posts"
+            elif m == "views" and p.get("handle_id") and (typical := latest_creator_value(con, p["handle_id"], "typical_views")):
                 p["outlier"], p["outlier_basis"] = round(p["views"] / typical, 2), "typical views snapshot"
+            if p["outlier"] is not None:
+                p["outlier_metric"] = m
+                break
     return posts
 
 

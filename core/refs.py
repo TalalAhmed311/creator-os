@@ -93,10 +93,16 @@ def scene_cuts(src: Path, threshold: float = 0.3) -> list[float]:
 def frame_at(src: Path, t: float, width: int = 360) -> np.ndarray:
     import cv2
 
-    raw = subprocess.run(["ffmpeg", "-hide_banner", "-nostdin", "-loglevel", "error", "-ss", f"{max(0, t):.3f}", "-i", str(src),
-                          "-frames:v", "1", "-vf", f"scale={width}:-2", "-f", "image2pipe", "-vcodec", "png", "-"],
-                         capture_output=True).stdout
-    img = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR)
+    def grab(seek: list[str]) -> np.ndarray | None:
+        raw = subprocess.run(["ffmpeg", "-hide_banner", "-nostdin", "-loglevel", "error", *seek, "-i", str(src),
+                              "-frames:v", "1", "-vf", f"scale={width}:-2", "-f", "image2pipe", "-vcodec", "png", "-"],
+                             capture_output=True).stdout
+        # cv2.imdecode raises (not returns None) on an empty buffer — e.g. a seek past the last frame
+        return cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_COLOR) if raw else None
+
+    img = grab(["-ss", f"{max(0, t):.3f}"])
+    if img is None:  # past the end → the last frame
+        img = grab(["-sseof", "-0.25"])
     return img if img is not None else np.zeros((640, width, 3), np.uint8)
 
 
@@ -156,7 +162,7 @@ def analyze(ref: Path, force: bool = False) -> Path:
     sheet(src, [0.0, 0.5, 1.0, 1.5, 2.0, 3.0], out / "hook.jpg", cols=6)
     shots = [0.0] + cuts
     picks = shots if len(shots) <= 24 else [shots[round(i * (len(shots) - 1) / 23)] for i in range(24)]
-    sheet(src, [p + 0.15 for p in picks], out / "contact.jpg", cols=6, width=240)
+    sheet(src, [min(p + 0.15, max(0.0, dur - 0.1)) for p in picks], out / "contact.jpg", cols=6, width=240)
 
     first = words[0]["start"] if words else None
     hook_words = [x["text"] for x in words if x["start"] < 3.0]

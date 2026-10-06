@@ -40,9 +40,9 @@ def _creator_post(c, handle, url, views):
 # ---------------------------------------------------------------- database
 
 def test_migrate_is_idempotent(con):
-    assert db.schema_version(con) == 1
+    assert db.schema_version(con) == len(db.MIGRATIONS)
     db.migrate(con)
-    assert db.schema_version(con) == 1
+    assert db.schema_version(con) == len(db.MIGRATIONS)
 
 
 def test_post_needs_exactly_one_author(con):
@@ -71,12 +71,55 @@ def test_outlier_scores(con):
     for i, v in enumerate([100, 120, 80, 1000]):
         _creator_post(con, "alice", f"https://www.instagram.com/reel/a{i}/", v)
     rows = db.with_outlier_scores(con, db.post_table(con, "p.url = ?", ("https://www.instagram.com/reel/a3/",)))
-    assert rows[0]["outlier"] == round(1000 / 110, 2) and "median of 4" in rows[0]["outlier_basis"]
+    assert rows[0]["outlier"] == round(1000 / 110, 2) and "median views of 4" in rows[0]["outlier_basis"]
     hid = db.ensure_handle(con, "instagram", "bob")
     db.add_creator_snapshot(con, hid, "test", "estimated", typical_views=500)
     _creator_post(con, "bob", "https://www.instagram.com/reel/b1/", 1500)
     rows = db.with_outlier_scores(con, db.post_table(con, "p.url = ?", ("https://www.instagram.com/reel/b1/",)))
     assert rows[0]["outlier"] == 3.0 and rows[0]["outlier_basis"] == "typical views snapshot"
+
+
+def test_latest_metrics_keeps_each_counter(con):
+    """A newer snapshot without views (yt-dlp on IG) must not hide views read from the page earlier."""
+    pid = _creator_post(con, "alice", "https://www.instagram.com/reel/v1/", 5000)
+    db.add_metrics(con, pid, "ytdlp", "verified", captured_at="2099-01-01T00:00:00", likes=40, comments=3)
+    m = db.dicts(con.execute("SELECT * FROM latest_metrics WHERE post_id = ?", (pid,)))[0]
+    assert m["views"] == 5000 and m["likes"] == 40 and m["comments"] == 3
+    assert m["source"] == "test"                       # provenance follows the views
+    db.add_metrics(con, pid, "browser", "verified", captured_at="2099-01-02T00:00:00", views=7000)
+    m = db.dicts(con.execute("SELECT * FROM latest_metrics WHERE post_id = ?", (pid,)))[0]
+    assert m["views"] == 7000 and m["likes"] == 40 and m["source"] == "browser"
+
+
+def test_metrics_dated_today_sort_after_earlier_snapshots(con):
+    pid = _creator_post(con, "alice", "https://www.instagram.com/reel/d1/", 100)
+    db.add_metrics(con, pid, "browser", "verified", captured_at=db.now()[:10], views=900)
+    assert db.dicts(con.execute("SELECT views FROM latest_metrics WHERE post_id = ?", (pid,)))[0]["views"] == 900
+
+
+def test_outliers_fall_back_to_likes_without_views(con):
+    hid = db.ensure_handle(con, "linkedin", "carol")
+    for i, likes in enumerate([100, 140, 120, 600]):
+        pid = db.upsert_post(con, f"https://www.linkedin.com/posts/carol_{i}", "linkedin", handle_id=hid)
+        db.add_metrics(con, pid, "linkedin-public-post", "verified", likes=likes)
+    rows = db.with_outlier_scores(con, db.post_table(con, "p.url = ?", ("https://www.linkedin.com/posts/carol_3",)))
+    assert rows[0]["outlier"] == round(600 / 130, 2) and rows[0]["outlier_metric"] == "likes"
+    assert rows[0]["outlier_basis"] == "median likes of 4 posts"
+    rows = db.with_outlier_scores(con, db.post_table(con, "p.url = ?", ("https://www.linkedin.com/posts/carol_3",)),
+                                  metric="views")
+    assert rows[0]["outlier"] is None
+
+
+def test_insight_evidence_can_be_added_later(con):
+    from harnesses.research import insights
+    a = _creator_post(con, "alice", "https://www.instagram.com/reel/e1/", 100)
+    b = _creator_post(con, "alice", "https://www.instagram.com/reel/e2/", 900)
+    iid = insights.add(con, "Silent loop with one text line", "format", "instagram", evidence=[a])["insight_id"]
+    assert insights.add_evidence(con, iid, [a, b]) == {"insight_id": iid, "added": 1, "evidence_posts": 2}
+    with pytest.raises(SystemExit):
+        insights.add_evidence(con, iid, [99999])
+    with pytest.raises(SystemExit):
+        insights.add_evidence(con, 99999, [a])
 
 
 def test_export_restore_roundtrip(con, tmp_path, monkeypatch):

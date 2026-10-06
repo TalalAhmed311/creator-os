@@ -20,12 +20,14 @@
   post list [--platform P] [--handle H] [--cluster C] [--min-outlier X] [--unanalysed] [--limit N]
   analysis set <post-id|url> [--hook-type T] [--hook-text T] [--visual-hook T] [--structure T] [--pacing T]
                              [--cta T] [--why T]
-  outliers [--platform P] [--cluster C] [--min X] [--limit N]   posts ranked by views ÷ the creator's normal
+  outliers [--platform P] [--cluster C] [--min X] [--limit N] [--metric auto|views|likes]
+                 posts ranked by views ÷ the creator's normal (auto: likes/reactions where views aren't public)
 
   insight add "<pattern>" --kind hook|structure|format|visual|topic|cadence|cta|other [--platform P] [--topic T]
                           [--how TEXT] [--evidence 3,7,9] [--confidence low|medium|high]
   insight top [--platform P] [--topic T] [--kind K] [--n 5]
   insight list [--platform P] [--all]
+  insight evidence <id> <post-id,post-id…>                      add proving posts to an existing insight
   insight retire <id>
   report <slug> [--platform P] [--topic T] [--n 5]              → data/reports/research/<date>-<slug>.md
 
@@ -155,6 +157,7 @@ def parser() -> argparse.ArgumentParser:
     x.add_argument("--min-outlier", type=float)
     x.add_argument("--unanalysed", action="store_true")
     x.add_argument("--limit", type=int)
+    x.add_argument("--metric", default="auto", choices=("auto", *db.OUTLIER_METRICS))
 
     x = sub.add_parser("analysis").add_subparsers(dest="sub", required=True).add_parser("set")
     x.add_argument("post")
@@ -166,6 +169,8 @@ def parser() -> argparse.ArgumentParser:
     x.add_argument("--cluster")
     x.add_argument("--min", type=float)
     x.add_argument("--limit", type=int, default=20)
+    x.add_argument("--metric", default="auto", choices=("auto", *db.OUTLIER_METRICS),
+                   help="auto: views, else likes/reactions where views aren't public (LinkedIn)")
 
     i = sub.add_parser("insight").add_subparsers(dest="sub", required=True)
     x = i.add_parser("add")
@@ -184,6 +189,9 @@ def parser() -> argparse.ArgumentParser:
     x = i.add_parser("list")
     x.add_argument("--platform", choices=db.PLATFORMS)
     x.add_argument("--all", action="store_true")
+    x = i.add_parser("evidence")
+    x.add_argument("id", type=int)
+    x.add_argument("posts", help="post ids, comma-separated")
     x = i.add_parser("retire")
     x.add_argument("id", type=int)
 
@@ -197,8 +205,8 @@ def parser() -> argparse.ArgumentParser:
 
 CREATOR_COLS = ["score", "platform", "handle", "name", "status", "signal", "cluster", "followers", "typical_views",
                 "reach_ratio", "posts_in_db"]
-POST_COLS = ["id", "author_handle", "format", "posted_at", "views", "outlier", "outlier_basis", "hook_text", "url"]
-WIDTHS = {"name": 22, "hook_text": 40, "url": 48, "posted_at": 10, "outlier_basis": 22, "pattern": 70}
+POST_COLS = ["id", "author_handle", "format", "posted_at", "views", "likes", "outlier", "outlier_basis", "hook_text", "url"]
+WIDTHS = {"name": 22, "hook_text": 40, "url": 48, "posted_at": 10, "outlier_basis": 26, "pattern": 70}
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -281,13 +289,13 @@ def main(argv: list[str] | None = None) -> int:
             _out(posts.refresh(con, sorted(set(ids))), args, ["post_id", "ok", "views"])
         elif sub == "list":
             rows = posts.listing(con, args.platform, args.handle, args.cluster, args.min_outlier,
-                                 False if args.unanalysed else None, args.limit)
+                                 False if args.unanalysed else None, args.limit, args.metric)
             _out(rows, args, POST_COLS, WIDTHS)
     elif cmd == "analysis":
         _out(posts.set_analysis(con, args.post, hook_type=args.hook_type, hook_text=args.hook_text, visual_hook=args.visual_hook,
                                 structure=args.structure, pacing=args.pacing, cta=args.cta, why_it_worked=args.why), args)
     elif cmd == "outliers":
-        _out(posts.listing(con, args.platform, None, args.cluster, args.min, None, args.limit), args, POST_COLS, WIDTHS)
+        _out(posts.listing(con, args.platform, None, args.cluster, args.min, None, args.limit, args.metric), args, POST_COLS, WIDTHS)
     elif cmd == "insight":
         if sub == "add":
             _out(insights.add(con, args.pattern, args.kind, args.platform, args.topic, args.how, _ints(args.evidence),
@@ -298,6 +306,8 @@ def main(argv: list[str] | None = None) -> int:
         elif sub == "list":
             _out(insights.ranked(con, args.platform, include_retired=args.all), args,
                  ["id", "status", "kind", "platform", "confidence", "seen", "pattern"], WIDTHS)
+        elif sub == "evidence":
+            _out(insights.add_evidence(con, args.id, _ints(args.posts)), args)
         elif sub == "retire":
             insights.retire(con, args.id)
             _out({"insight_id": args.id, "status": "retired"}, args)

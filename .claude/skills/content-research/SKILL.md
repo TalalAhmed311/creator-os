@@ -42,8 +42,10 @@ steal techniques, never content; quote at most one short line in reports.
 2. **Collect.** For each creator, find 6–12 recent posts (connectors above). Add each: `./studio research post add <url>`
    (`--no-download` for posts you won't analyse; text posts: `--text-file` + counters + `--source`). Fill missing views.
 3. **Rank.** `./studio research outliers --platform <p>` — outlier = views ÷ that creator's median (needs ≥ 3 of their posts
-   in the DB; otherwise ÷ their typical-views snapshot, flagged in `outlier_basis`). Study the top ~8 **and** 2–3 flops
-   from the same creators (the contrast is the lesson).
+   in the DB; otherwise ÷ their typical-views snapshot). Where views aren't public (LinkedIn) it falls back to likes/reactions
+   ÷ their median likes — `outlier_basis` says which; say "on reactions" in the report. Study the top ~8 **and** 2–3 flops
+   from the same creators (the contrast is the lesson). Each counter shown is its newest non-empty value, so a later yt-dlp
+   snapshot without IG views doesn't hide views read from the page.
 4. **Break down** each studied post. Video: `./studio research post analyze <id>` → LOOK at `hook.jpg` and `contact.jpg`,
    read `transcript.txt` and `metrics.json`. Text: read it. Then store the structured breakdown:
    `./studio research analysis set <id> --hook-type <brain type> --hook-text "…" --visual-hook "…" --structure "hook → … → cta"
@@ -53,7 +55,8 @@ steal techniques, never content; quote at most one short line in reports.
    rule + template, not a description:
    `./studio research insight add "<pattern>" --kind hook --platform instagram --topic "<topic>" --evidence 3,7,9
    --how "<template + when to use it>" --confidence low|medium|high` (high = ≥ 4 posts, ≥ 3 creators, avg outlier ≥ 2).
-   Similar patterns merge automatically (seen +1).
+   Similar patterns merge automatically (seen +1). More proof found later (by you or another run):
+   `./studio research insight evidence <insight-id> 12,15`.
 6. **Report.** `./studio research report <slug> --platform <p> --topic "<topic>"` → write the `## Summary` (3–5 lines: what the
    owner should make next and why). Tell the owner the top 5 in ≤ 10 lines with the report path.
 7. Lessons that will matter beyond this topic: `.venv/bin/python -m core.memory remember "<finding with numbers>" --kind lesson --tags research,<platform>`.
